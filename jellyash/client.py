@@ -34,6 +34,7 @@ def auth_with_token(client):
 def authed_client(app_name, app_version):
     client = create_client(app_name, app_version)
     auth_with_token(client)
+    return client
 
 
 class ApiResponse:
@@ -57,7 +58,7 @@ class Item:
     def _raw_item(self):
         return self.item
 
-    def __attr__(self, attr):
+    def __getattr__(self, attr):
         try:
             value = self.item[attr]
             if isinstance(value, dict):
