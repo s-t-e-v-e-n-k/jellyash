@@ -5,6 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "jellyash"
 dynamic = ["version"]
+license = {file = "LICENSE"}
 dependencies = [
 	"jellyfin_apiclient_python",
 ]
