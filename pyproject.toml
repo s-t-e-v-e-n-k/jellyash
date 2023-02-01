@@ -4,10 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jellyash"
-version = "0.1.0"
+dynamic = ["version"]
 dependencies = [
 	"jellyfin_apiclient_python",
 ]
 
 [project.scripts]
 create_jellyfin_token = "jellyash.token:create_jellyfin_token"
+
+[tool.setuptools.dynamic]
+version = {attr = "jellyash.__version__"}
