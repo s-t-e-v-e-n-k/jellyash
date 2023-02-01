@@ -1,13 +1,17 @@
 import json
 import getpass
 from pathlib import Path
+import sys
 
 from .client import create_client, auth_with_password
 
 
 def create_jellyfin_token():
     client = create_client('create_jellyfin_token', '0.1.0')
-    address = "https://jellyfin.wedontsleep.org/"
+    if len(sys.argv) == 2:
+        address = sys.argv[1]
+    else:
+        address = "https://jellyfin.wedontsleep.org/"
     password = getpass.getpass()
     result = auth_with_password(client, address, getpass.getuser(), password)
     if "AccessToken" in result:
