@@ -49,6 +49,9 @@ class ApiResponse:
     def __iter__(self):
         yield from [Item(i) for i in self.value["Items"]]
 
+    def __getitem__(self, key):
+        return Item(self.value["Items"][key])
+
     def __len__(self):
         return self.value["TotalRecordCount"] + self.value["StartIndex"]
 
