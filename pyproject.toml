@@ -12,6 +12,7 @@ dependencies = [
 
 [project.scripts]
 create_jellyfin_token = "jellyash.token:create_jellyfin_token"
+nextup = "jellyash.nextup:nextup"
 
 [tool.setuptools.dynamic]
 version = {attr = "jellyash.__version__"}
