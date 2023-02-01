@@ -6,15 +6,17 @@ from uuid import uuid4
 from jellyfin_apiclient_python.api import API
 from jellyfin_apiclient_python.client import JellyfinClient
 
+from . import __version__
+
 
 class WrappedAPI(API):
     def _get(self, handler, params=None):
         return ApiResponse(super()._get(handler, params=params))
 
 
-def create_client(app_name, app_version):
+def create_client(app_name):
     client = JellyfinClient()
-    client.config.app(app_name, app_version, platform.node(), str(uuid4()))
+    client.config.app(app_name, __version__, platform.node(), str(uuid4()))
     client.config.data["auth.ssl"] = True
     client.jellyfin = WrappedAPI(client.http)
     return client
@@ -31,8 +33,8 @@ def auth_with_token(client):
     client.authenticate({"Servers": [credentials]}, discover=False)
 
 
-def authed_client(app_name, app_version):
-    client = create_client(app_name, app_version)
+def authed_client(app_name):
+    client = create_client(app_name)
     auth_with_token(client)
     return client
 

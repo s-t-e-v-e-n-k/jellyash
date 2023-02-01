@@ -7,7 +7,7 @@ from .client import create_client, auth_with_password
 
 
 def create_jellyfin_token():
-    client = create_client('create_jellyfin_token', '0.1.0')
+    client = create_client('create_jellyfin_token')
     if len(sys.argv) == 2:
         address = sys.argv[1]
     else:
