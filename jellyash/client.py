@@ -67,5 +67,5 @@ class Item:
                 value = Item(value)
             return value
         except KeyError:
-            raise AttributeError
+            raise AttributeError(f"Item has no attribute '{attr}'")
 
