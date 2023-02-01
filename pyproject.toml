@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jellyash"
+version = "0.1.0"
+dependencies = [
+	"jellyfin_apiclient_python",
+]
+
+[project.scripts]
+create_jellyfin_token = "jellyash.token:create_jellyfin_token"

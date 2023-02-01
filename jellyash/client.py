@@ -1,0 +1,68 @@
+import json
+from pathlib import Path
+import platform
+from uuid import uuid4
+
+from jellyfin_apiclient_python.api import API
+from jellyfin_apiclient_python.client import JellyfinClient
+
+
+class WrappedAPI(API):
+    def _get(self, handler, params=None):
+        return ApiResponse(super()._get(handler, params=params))
+
+
+def create_client(app_name, app_version):
+    client = JellyfinClient()
+    client.config.app(app_name, app_version, platform.node(), str(uuid4()))
+    client.config.data["auth.ssl"] = True
+    client.jellyfin = WrappedAPI(client.http)
+    return client
+
+
+def auth_with_password(client, address, user, password):
+    client.auth.connect_to_address(address)
+    return client.auth.login(address, user, password)
+
+
+def auth_with_token(client):
+    with open(Path.home() / ".jellyfin_creds", 'r') as f:
+        credentials = json.load(f)
+    client.authenticate({"Servers": [credentials]}, discover=False)
+
+
+def authed_client(app_name, app_version):
+    client = create_client(app_name, app_version)
+    auth_with_token(client)
+
+
+class ApiResponse:
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return f"<ApiResponse object containing {len(self)} items>"
+
+    def __iter__(self):
+        yield from [Item(i) for i in self.value["Items"]]
+
+    def __len__(self):
+        return self.value["TotalRecordCount"] + self.value["StartIndex"]
+
+
+class Item:
+    def __init__(self, item):
+        self.item = item
+
+    def _raw_item(self):
+        return self.item
+
+    def __attr__(self, attr):
+        try:
+            value = self.item[attr]
+            if isinstance(value, dict):
+                value = Item(value)
+            return value
+        except KeyError:
+            raise AttributeError
+
