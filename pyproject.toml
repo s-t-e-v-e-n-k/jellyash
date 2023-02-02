@@ -11,6 +11,7 @@ dependencies = [
 ]
 
 [project.scripts]
+average_duration = "jellyash.duration:average_duration"
 create_jellyfin_token = "jellyash.token:create_jellyfin_token"
 nextup = "jellyash.nextup:nextup"
 unwatched = "jellyash.unwatched:unwatched"
