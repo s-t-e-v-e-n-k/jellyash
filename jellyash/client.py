@@ -1,4 +1,5 @@
 import json
+import inspect
 from pathlib import Path
 import platform
 from uuid import uuid4
@@ -14,8 +15,10 @@ class WrappedAPI(API):
         return ApiResponse(super()._get(handler, params=params))
 
 
-def create_client(app_name):
+def create_client(app_name=None):
     client = JellyfinClient()
+    if not app_name:
+        app_name = determine_app_name()
     client.config.app(app_name, __version__, platform.node(), str(uuid4()))
     client.config.data["auth.ssl"] = True
     client.jellyfin = WrappedAPI(client.http)
@@ -33,10 +36,15 @@ def auth_with_token(client):
     client.authenticate({"Servers": [credentials]}, discover=False)
 
 
-def authed_client(app_name):
-    client = create_client(app_name)
+def authed_client():
+    client = create_client(None)
     auth_with_token(client)
     return client
+
+
+def determine_app_name():
+    frame = inspect.stack()[-2]
+    return f"jellyfin_{inspect.getmodulename(frame.filename)}"
 
 
 class ApiResponse:

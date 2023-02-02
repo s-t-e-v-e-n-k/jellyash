@@ -9,7 +9,7 @@ def average_duration():
     if len(sys.argv) == 1:
         print(f"{sys.argv[0]}: Need a show argument")
         return
-    client = authed_client('jellyfin_duration')
+    client = authed_client()
     term = " ".join(sys.argv[1:])
     try:
         show = search_single_show(client, term)

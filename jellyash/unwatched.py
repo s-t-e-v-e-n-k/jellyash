@@ -6,7 +6,7 @@ from .series import search_single_show
 
 
 def unwatched():
-    client = authed_client('jellyfin_nextup')
+    client = authed_client()
     if len(sys.argv) == 1:
         all_unwatched(client)
     else:

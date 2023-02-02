@@ -7,7 +7,7 @@ def episode_str(episode):
 
 
 def nextup():
-    client = authed_client('jellyfin_nextup')
+    client = authed_client()
     for episode in client.jellyfin.get_next(limit=30):
         print(episode_str(episode))
 
