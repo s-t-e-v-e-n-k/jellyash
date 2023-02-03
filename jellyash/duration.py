@@ -1,18 +1,17 @@
+import argparse
 from decimal import Decimal
-import sys
 
 from .client import authed_client
 from .series import search_single_show
 
 
 def average_duration():
-    if len(sys.argv) == 1:
-        print(f"{sys.argv[0]}: Need a show argument")
-        return
+    parser = argparse.ArgumentParser()
+    parser.add_argument('show', nargs='+')
+    args = parser.parse_args()
     client = authed_client()
-    term = " ".join(sys.argv[1:])
     try:
-        show = search_single_show(client, term)
+        show = search_single_show(client, " ".join(args.show))
     except ValueError as e:
         print(str(e))
         return

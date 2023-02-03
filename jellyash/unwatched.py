@@ -1,5 +1,5 @@
+import argparse
 from operator import attrgetter
-import sys
 
 from .client import authed_client
 from .series import search_single_show
@@ -7,10 +7,13 @@ from .series import search_single_show
 
 def unwatched():
     client = authed_client()
-    if len(sys.argv) == 1:
+    parser = argparse.ArgumentParser()
+    parser.add_argument('show', nargs='*')
+    args = parser.parse_args()
+    if not args.show:
         all_unwatched(client)
     else:
-        specific_unwatched(client)
+        specific_unwatched(client, " ".join(args.show))
 
 
 def all_unwatched(client):
@@ -24,8 +27,7 @@ def all_unwatched(client):
     print(f"Total: {total} unwatched episodes")
 
 
-def specific_unwatched(client):
-    term = " ".join(sys.argv[1:])
+def specific_unwatched(client, term):
     try:
         show = search_single_show(client, term)
     except ValueError as e:
