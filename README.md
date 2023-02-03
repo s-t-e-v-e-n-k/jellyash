@@ -1,5 +1,7 @@
 # Jellyash
 
+Jelly **A**eroplane **S**hark **H**elper
+
 Wrapper around jellyfin-apiclient-python to provide convenience functions:
 
 Create an unauthenticated client:
