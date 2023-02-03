@@ -1,9 +1,8 @@
 import json
 import getpass
-from pathlib import Path
 import sys
 
-from .client import create_client, auth_with_password
+from .client import create_client, auth_with_password, CREDENTIALS_FILE
 
 
 def create_jellyfin_token():
@@ -18,7 +17,7 @@ def create_jellyfin_token():
         credentials = client.auth.credentials.get_credentials()
         server = credentials["Servers"][0]
         server["username"] = getpass.getuser()
-        with open(Path.home() / ".jellyfin_creds", 'w') as f:
+        with open(CREDENTIALS_FILE, 'w') as f:
             json.dump(server, f)
         print("Credentials saved.")
 

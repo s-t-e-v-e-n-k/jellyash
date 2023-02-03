@@ -3,11 +3,15 @@ import inspect
 from pathlib import Path
 import platform
 from uuid import uuid4
+import sys
 
 from jellyfin_apiclient_python.api import API
 from jellyfin_apiclient_python.client import JellyfinClient
 
 from . import __version__
+
+
+CREDENTIALS_FILE = Path.home() / ".jellyfin_creds"
 
 
 class WrappedAPI(API):
@@ -31,12 +35,15 @@ def auth_with_password(client, address, user, password):
 
 
 def auth_with_token(client):
-    with open(Path.home() / ".jellyfin_creds", 'r') as f:
+    with open(CREDENTIALS_FILE, 'r') as f:
         credentials = json.load(f)
     client.authenticate({"Servers": [credentials]}, discover=False)
 
 
 def authed_client():
+    if not CREDENTIALS_FILE.is_file():
+        print(f"{sys.argv[0]}: Requires credential file.")
+        sys.exit(1)
     client = create_client(None)
     auth_with_token(client)
     return client
