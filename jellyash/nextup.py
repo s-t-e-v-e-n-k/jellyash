@@ -1,3 +1,5 @@
+import argparse
+
 from .client import authed_client
 
 
@@ -8,6 +10,9 @@ def episode_str(episode):
 
 def nextup():
     client = authed_client()
-    for episode in client.jellyfin.get_next(limit=30):
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-l', '--limit', dest='limit', type=int, default=30)
+    args = parser.parse_args()
+    for episode in client.jellyfin.get_next(limit=args.limit):
         print(episode_str(episode))
 
