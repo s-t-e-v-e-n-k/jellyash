@@ -1,3 +1,4 @@
 dist
 jellyash.egg-info
 venv
+.tox/
