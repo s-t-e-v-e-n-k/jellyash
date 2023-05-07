@@ -2,3 +2,4 @@ dist
 jellyash.egg-info
 venv
 .tox/
+__pycache__/
