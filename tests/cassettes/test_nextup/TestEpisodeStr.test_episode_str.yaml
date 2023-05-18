@@ -1,0 +1,52 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Charset:
+      - UTF-8,*
+      Accept-encoding:
+      - gzip
+      Connection:
+      - keep-alive
+      Content-type:
+      - application/json
+      User-Agent:
+      - jellyash_test_testepisodestr/0.3.4
+      X-MediaBrowser-Token:
+      - 3d17e217ee764cb08b9230f0d9a92af9
+      x-emby-authorization:
+      - MediaBrowser Client=jellyash_test_testepisodestr, Device=wrecked, DeviceId=b7c86e80-0a6a-4cc9-b812-c99f446c3c9e,
+        Version=0.3.4, UserId=a076a5bfc9034f379f5889bc6dafc77b
+    method: GET
+    uri: https://demo.jellyfin.org/stable/Users/a076a5bfc9034f379f5889bc6dafc77b/Items?searchTerm=The+Man+From+Mars&Recursive=True&IncludeItemTypes=Episodes&Limit=20
+  response:
+    body:
+      string: '{"Items":[{"Name":"Pioneer One (2010) - S01E02 - The Man From Mars","ServerId":"713dc3fe952b438fa70ed35e4ef0525a","Id":"e3659624a735c252e46bbe4a8ca50b33","ChannelId":null,"IsFolder":true,"Type":"Folder","ParentBackdropItemId":"05991932707d2c668148d8ed19cdb544","ParentBackdropImageTags":["b8f1332f5ca6e72d8129c4bceadd100b"],"UserData":{"UnplayedItemCount":0,"PlaybackPositionTicks":0,"PlayCount":0,"IsFavorite":false,"Played":true,"Key":"e3659624-a735-c252-e46b-be4a8ca50b33"},"ImageTags":{"Primary":"0a7ac645a383db17d88f720616d7d9e2"},"BackdropImageTags":[],"ImageBlurHashes":{"Primary":{"0a7ac645a383db17d88f720616d7d9e2":"WJE3SKoy00tRMxMy~qtQD%x]%3IA_3ofIUogoMIUs=axRjRkt6oz"},"Backdrop":{"b8f1332f5ca6e72d8129c4bceadd100b":"WiI4hd}q,--=x]t6~WrqZ~xvtRoeIpD*IUjFniaen%aeafjFaLV["}},"LocationType":"FileSystem"},{"Name":"The
+        Man From Mars","ServerId":"713dc3fe952b438fa70ed35e4ef0525a","Id":"26e5d3268d21165df762a033b8b116f6","HasSubtitles":true,"Container":"mov,mp4,m4a,3gp,3g2,mj2","PremiereDate":"2010-12-15T00:00:00.0000000Z","ChannelId":null,"CommunityRating":7.9,"RunTimeTicks":3190279936,"ProductionYear":2010,"IndexNumber":2,"ParentIndexNumber":1,"IsFolder":false,"Type":"Episode","ParentBackdropItemId":"05991932707d2c668148d8ed19cdb544","ParentBackdropImageTags":["b8f1332f5ca6e72d8129c4bceadd100b"],"UserData":{"PlaybackPositionTicks":0,"PlayCount":12,"IsFavorite":true,"LastPlayedDate":"2020-02-15T17:30:50.3651528Z","Played":true,"Key":"170551001002"},"SeriesName":"Pioneer
+        One","SeriesId":"05991932707d2c668148d8ed19cdb544","SeasonId":"0bf82b6ecd61047b8dea0eb0035ad364","SeriesPrimaryImageTag":"63bd1ece25c9fdb2d91b6b4d48ae07f1","SeasonName":"Season
+        1","VideoType":"VideoFile","ImageTags":{"Primary":"65371f84602fe2b03484bde291ab238a"},"BackdropImageTags":[],"ImageBlurHashes":{"Primary":{"65371f84602fe2b03484bde291ab238a":"WJE3SKoy00tRMxMy~qtQD%x]%3IA_3ofIUogoMIUs=axRjRkt6oz","63bd1ece25c9fdb2d91b6b4d48ae07f1":"drKJ[S-pX8M{~BxaX8M{8^RjWXNGi^RjRjog-;RkRjt7"},"Backdrop":{"b8f1332f5ca6e72d8129c4bceadd100b":"WiI4hd}q,--=x]t6~WrqZ~xvtRoeIpD*IUjFniaen%aeafjFaLV["}},"LocationType":"FileSystem","MediaType":"Video"}],"TotalRecordCount":2,"StartIndex":0}'
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Wed, 17 May 2023 09:42:05 GMT
+      referrer-policy:
+      - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
+      server:
+      - Kestrel
+      strict-transport-security:
+      - max-age=31536000;includeSubDomains;preload
+      transfer-encoding:
+      - chunked
+      x-content-type-options:
+      - nosniff
+      x-response-time-ms:
+      - '15'
+      x-xss-protection:
+      - 1;mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

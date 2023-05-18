@@ -1,0 +1,49 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Charset:
+      - UTF-8,*
+      Accept-encoding:
+      - gzip
+      Connection:
+      - keep-alive
+      Content-type:
+      - application/json
+      User-Agent:
+      - jellyash_test_testunwatched/0.3.4
+      X-MediaBrowser-Token:
+      - 3dc7b2dee3834acea23d319c67db1c10
+      x-emby-authorization:
+      - MediaBrowser Client=jellyash_test_testunwatched, Device=wrecked, DeviceId=d732e464-3214-4fce-b0af-57cc9797c9c8,
+        Version=0.3.4, UserId=a076a5bfc9034f379f5889bc6dafc77b
+    method: GET
+    uri: https://demo.jellyfin.org/stable/Users/a076a5bfc9034f379f5889bc6dafc77b/Items?searchTerm=&Recursive=True&IncludeItemTypes=Series&Limit=300
+  response:
+    body:
+      string: '{"Items":[{"Name":"Pioneer One","ServerId":"713dc3fe952b438fa70ed35e4ef0525a","Id":"05991932707d2c668148d8ed19cdb544","PremiereDate":"2010-06-16T00:00:00.0000000Z","OfficialRating":"NR","ChannelId":null,"CommunityRating":6.9,"RunTimeTicks":17999998976,"ProductionYear":2010,"IsFolder":true,"Type":"Series","UserData":{"UnplayedItemCount":1,"PlaybackPositionTicks":0,"PlayCount":0,"IsFavorite":false,"Played":false,"Key":"170551"},"Status":"Ended","AirDays":[],"ImageTags":{"Primary":"63bd1ece25c9fdb2d91b6b4d48ae07f1","Banner":"f06d9e317cb59d0f050e2fbd1fe64e54"},"BackdropImageTags":["b8f1332f5ca6e72d8129c4bceadd100b"],"ImageBlurHashes":{"Backdrop":{"b8f1332f5ca6e72d8129c4bceadd100b":"WiI4hd}q,--=x]t6~WrqZ~xvtRoeIpD*IUjFniaen%aeafjFaLV["},"Primary":{"63bd1ece25c9fdb2d91b6b4d48ae07f1":"drKJ[S-pX8M{~BxaX8M{8^RjWXNGi^RjRjog-;RkRjt7"},"Banner":{"f06d9e317cb59d0f050e2fbd1fe64e54":"HlH_S*=yrC$ext%MtRtRWn~WxZeTs8s.t7ozofWB"}},"LocationType":"FileSystem","EndDate":"2011-12-13T00:00:00.0000000Z"}],"TotalRecordCount":1,"StartIndex":0}'
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Wed, 17 May 2023 16:16:45 GMT
+      referrer-policy:
+      - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
+      server:
+      - Kestrel
+      strict-transport-security:
+      - max-age=31536000;includeSubDomains;preload
+      transfer-encoding:
+      - chunked
+      x-content-type-options:
+      - nosniff
+      x-response-time-ms:
+      - '11'
+      x-xss-protection:
+      - 1;mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

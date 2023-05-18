@@ -1,0 +1,70 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Charset:
+      - UTF-8,*
+      Accept-encoding:
+      - gzip
+      Connection:
+      - keep-alive
+      Content-type:
+      - application/json
+      User-Agent:
+      - jellyash_test_testapiresponse/0.3.4
+      X-MediaBrowser-Token:
+      - e2c9d5ee8a62440e98c23e0d46402751
+      x-emby-authorization:
+      - MediaBrowser Client=jellyash_test_testapiresponse, Device=wrecked, DeviceId=b97099ef-20be-49d8-8913-614b77d8d3ef,
+        Version=0.3.4, UserId=a076a5bfc9034f379f5889bc6dafc77b
+    method: GET
+    uri: https://demo.jellyfin.org/stable/Users/a076a5bfc9034f379f5889bc6dafc77b/Items?searchTerm=&Recursive=True&IncludeItemTypes=Movies&Limit=5
+  response:
+    body:
+      string: '{"Items":[{"Name":"Blender Foundation","ServerId":"713dc3fe952b438fa70ed35e4ef0525a","Id":"01fff54ce70b1cbb26d52fca759c0e01","ChannelId":null,"IsFolder":true,"Type":"Folder","UserData":{"UnplayedItemCount":0,"PlaybackPositionTicks":0,"PlayCount":0,"IsFavorite":false,"Played":true,"Key":"01fff54c-e70b-1cbb-26d5-2fca759c0e01"},"ImageTags":{},"BackdropImageTags":[],"ImageBlurHashes":{},"LocationType":"FileSystem"},{"Name":"18
+        - The Passenger of the \u0027Atlanta\u0027","ServerId":"713dc3fe952b438fa70ed35e4ef0525a","Id":"041dc5e58df5fdcef710d2e59787ffb8","ChannelId":null,"RunTimeTicks":7387167232,"IndexNumber":18,"IsFolder":false,"Type":"AudioBook","UserData":{"PlaybackPositionTicks":0,"PlayCount":0,"IsFavorite":false,"Played":false,"Key":"Jules
+        Verne-From the Earth to the Moon, Version 2-001818 - The Passenger of the
+        \u0027Atlanta\u0027"},"Artists":["Jules Verne"],"ArtistItems":[{"Name":"Jules
+        Verne","Id":"ba3977a5790aef3b89bd318f999b294f"}],"Album":"From the Earth to
+        the Moon, Version 2","AlbumArtist":"Jules Verne","AlbumArtists":[{"Name":"Jules
+        Verne","Id":"ba3977a5790aef3b89bd318f999b294f"}],"ImageTags":{},"BackdropImageTags":[],"ImageBlurHashes":{},"LocationType":"FileSystem","MediaType":"Audio"},{"Name":"14
+        - Pickaxe and Trowel","ServerId":"713dc3fe952b438fa70ed35e4ef0525a","Id":"0b9f61a36e96a7629f2707042e9497ca","ChannelId":null,"RunTimeTicks":6297077760,"IndexNumber":14,"IsFolder":false,"Type":"AudioBook","UserData":{"PlaybackPositionTicks":0,"PlayCount":0,"IsFavorite":false,"Played":false,"Key":"Jules
+        Verne-From the Earth to the Moon, Version 2-001414 - Pickaxe and Trowel"},"Artists":["Jules
+        Verne"],"ArtistItems":[{"Name":"Jules Verne","Id":"ba3977a5790aef3b89bd318f999b294f"}],"Album":"From
+        the Earth to the Moon, Version 2","AlbumArtist":"Jules Verne","AlbumArtists":[{"Name":"Jules
+        Verne","Id":"ba3977a5790aef3b89bd318f999b294f"}],"ImageTags":{},"BackdropImageTags":[],"ImageBlurHashes":{},"LocationType":"FileSystem","MediaType":"Audio"},{"Name":"31
+        - Part II, Chapter 26: Bow and Arrow","ServerId":"713dc3fe952b438fa70ed35e4ef0525a","Id":"0e0c57e8f84180419eea6b6bae2a0197","ChannelId":null,"RunTimeTicks":8140277760,"IsFolder":false,"Type":"AudioBook","UserData":{"PlaybackPositionTicks":0,"PlayCount":0,"IsFavorite":false,"Played":false,"Key":"Richard
+        Jefferies-After London, or Wild England-31 - Part II, Chapter 26: Bow and
+        Arrow"},"Artists":["Richard Jefferies"],"ArtistItems":[{"Name":"Richard Jefferies","Id":"41ece428b91196831bac82a34cc43e2d"}],"Album":"After
+        London, or Wild England","AlbumArtist":"Richard Jefferies","AlbumArtists":[{"Name":"Richard
+        Jefferies","Id":"41ece428b91196831bac82a34cc43e2d"}],"ImageTags":{},"BackdropImageTags":[],"ImageBlurHashes":{},"LocationType":"FileSystem","MediaType":"Audio"},{"Name":"22
+        - The New Citizen of the United States","ServerId":"713dc3fe952b438fa70ed35e4ef0525a","Id":"0e61438550c8feb96b6065330f51514f","ChannelId":null,"RunTimeTicks":6135379456,"IndexNumber":22,"IsFolder":false,"Type":"AudioBook","UserData":{"PlaybackPositionTicks":0,"PlayCount":0,"IsFavorite":false,"Played":false,"Key":"Jules
+        Verne-From the Earth to the Moon, Version 2-002222 - The New Citizen of the
+        United States"},"Artists":["Jules Verne"],"ArtistItems":[{"Name":"Jules Verne","Id":"ba3977a5790aef3b89bd318f999b294f"}],"Album":"From
+        the Earth to the Moon, Version 2","AlbumArtist":"Jules Verne","AlbumArtists":[{"Name":"Jules
+        Verne","Id":"ba3977a5790aef3b89bd318f999b294f"}],"ImageTags":{},"BackdropImageTags":[],"ImageBlurHashes":{},"LocationType":"FileSystem","MediaType":"Audio"}],"TotalRecordCount":95,"StartIndex":0}'
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sat, 13 May 2023 02:44:20 GMT
+      referrer-policy:
+      - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
+      server:
+      - Kestrel
+      strict-transport-security:
+      - max-age=31536000;includeSubDomains;preload
+      transfer-encoding:
+      - chunked
+      x-content-type-options:
+      - nosniff
+      x-response-time-ms:
+      - '70'
+      x-xss-protection:
+      - 1;mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

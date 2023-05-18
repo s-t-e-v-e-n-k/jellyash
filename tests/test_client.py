@@ -5,12 +5,15 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+from jellyfin_apiclient_python.client import JellyfinClient
 import pytest
 
 from jellyash import __version__
 from jellyash.client import (
-    auth_with_password, auth_with_token, create_client
+    authed_client, auth_with_password, auth_with_token, create_client,
+    determine_app_name
     )
+from .conftest import ClientTest
 
 
 class TestClient(unittest.TestCase):
@@ -66,3 +69,28 @@ class TestAuthWithToken(unittest.TestCase):
         with patch("jellyash.client.CREDENTIALS_FILE", non_exist):
             with self.assertRaises(ValueError):
                 auth_with_token(None)
+
+
+class TestAuthedClient(ClientTest):
+    @pytest.mark.vcr
+    def test_authed_client(self):
+        with tempfile.NamedTemporaryFile() as tmpfile:
+            credentials = self.test_client.auth.credentials.get_credentials()
+            with open(tmpfile.name, 'w') as f:
+                json.dump(credentials["Servers"][0], f)
+            ptf = pathlib.Path(tmpfile.name)
+            with patch("jellyash.client.CREDENTIALS_FILE", ptf):
+                client = authed_client()
+                self.assertTrue(isinstance(client, JellyfinClient))
+
+    def test_authed_client_non_existant_file(self):
+        non_exist = pathlib.Path("/does/not/exist")
+        with patch("jellyash.client.CREDENTIALS_FILE", non_exist):
+            with patch("sys.exit", return_value=None) as mock_exit:
+                authed_client()
+                mock_exit.assert_called_once()
+
+
+class TestDetermineAppName(unittest.TestCase):
+    def test_determine_app_name(self):
+        self.assertEqual(determine_app_name(), "jellyfin___init__")

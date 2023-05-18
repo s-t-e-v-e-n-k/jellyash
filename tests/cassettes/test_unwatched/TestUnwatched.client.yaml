@@ -1,0 +1,147 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Charset:
+      - UTF-8,*
+      Accept-encoding:
+      - gzip
+      Connection:
+      - keep-alive
+      Content-type:
+      - application/x-www-form-urlencoded; charset=UTF-8
+      User-Agent:
+      - jellyash_test_testunwatched/0.3.4
+      X-Application:
+      - jellyash_test_testunwatched/0.3.4
+      x-emby-authorization:
+      - MediaBrowser Client=jellyash_test_testunwatched, Device=wrecked, DeviceId=d732e464-3214-4fce-b0af-57cc9797c9c8,
+        Version=0.3.4
+    method: GET
+    uri: https://demo.jellyfin.org/stable/system/info/public
+  response:
+    body:
+      string: '{"LocalAddress":"http://172.17.0.2:8096/stable","ServerName":"Stable
+        Demo","Version":"10.8.10","ProductName":"Jellyfin Server","OperatingSystem":"Linux","Id":"713dc3fe952b438fa70ed35e4ef0525a","StartupWizardCompleted":true}'
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Wed, 17 May 2023 16:16:44 GMT
+      referrer-policy:
+      - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
+      server:
+      - Kestrel
+      strict-transport-security:
+      - max-age=31536000;includeSubDomains;preload
+      transfer-encoding:
+      - chunked
+      x-content-type-options:
+      - nosniff
+      x-response-time-ms:
+      - '5'
+      x-xss-protection:
+      - 1;mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Charset:
+      - UTF-8,*
+      Accept-encoding:
+      - gzip
+      Connection:
+      - keep-alive
+      Content-type:
+      - application/x-www-form-urlencoded; charset=UTF-8
+      User-Agent:
+      - jellyash_test_testunwatched/0.3.4
+      X-Application:
+      - jellyash_test_testunwatched/0.3.4
+      x-emby-authorization:
+      - MediaBrowser Client=jellyash_test_testunwatched, Device=wrecked, DeviceId=d732e464-3214-4fce-b0af-57cc9797c9c8,
+        Version=0.3.4
+    method: GET
+    uri: https://demo.jellyfin.org/stable/system/info/public
+  response:
+    body:
+      string: '{"LocalAddress":"http://172.17.0.2:8096/stable","ServerName":"Stable
+        Demo","Version":"10.8.10","ProductName":"Jellyfin Server","OperatingSystem":"Linux","Id":"713dc3fe952b438fa70ed35e4ef0525a","StartupWizardCompleted":true}'
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Wed, 17 May 2023 16:16:44 GMT
+      referrer-policy:
+      - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
+      server:
+      - Kestrel
+      strict-transport-security:
+      - max-age=31536000;includeSubDomains;preload
+      transfer-encoding:
+      - chunked
+      x-content-type-options:
+      - nosniff
+      x-response-time-ms:
+      - '1'
+      x-xss-protection:
+      - 1;mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"username": "demo", "Pw": ""}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Charset:
+      - UTF-8,*
+      Accept-encoding:
+      - gzip
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '30'
+      Content-type:
+      - application/json
+      User-Agent:
+      - jellyash_test_testunwatched/0.3.4
+      X-Application:
+      - jellyash_test_testunwatched/0.3.4
+      x-emby-authorization:
+      - MediaBrowser Client=jellyash_test_testunwatched, Device=wrecked, DeviceId=d732e464-3214-4fce-b0af-57cc9797c9c8,
+        Version=0.3.4
+    method: POST
+    uri: https://demo.jellyfin.org/stable/Users/AuthenticateByName
+  response:
+    body:
+      string: '{"User":{"Name":"demo","ServerId":"713dc3fe952b438fa70ed35e4ef0525a","Id":"a076a5bfc9034f379f5889bc6dafc77b","HasPassword":false,"HasConfiguredPassword":false,"HasConfiguredEasyPassword":true,"EnableAutoLogin":false,"LastLoginDate":"2023-05-17T16:16:45.3732842Z","LastActivityDate":"2023-05-17T16:16:45.3732842Z","Configuration":{"AudioLanguagePreference":"","PlayDefaultAudioTrack":true,"SubtitleLanguagePreference":"dut","DisplayMissingEpisodes":true,"GroupedFolders":["f137a2dd21bbc1b99aa5c0f6bf02a805","767bffe4f11c93ef34b805451a696a4e"],"SubtitleMode":"Always","DisplayCollectionsView":false,"EnableLocalPassword":true,"OrderedViews":["b6239cb8a74ff47b07bbf770d40a8e56","f137a2dd21bbc1b99aa5c0f6bf02a805","7e64e319657a9516ec78490da03edccb","767bffe4f11c93ef34b805451a696a4e","9d7ad6afe9afa2dab1a2f6e00ad28fa6"],"LatestItemsExcludes":[],"MyMediaExcludes":["9d7ad6afe9afa2dab1a2f6e00ad28fa6"],"HidePlayedInLatest":false,"RememberAudioSelections":true,"RememberSubtitleSelections":true,"EnableNextEpisodeAutoPlay":true},"Policy":{"IsAdministrator":false,"IsHidden":true,"IsDisabled":false,"BlockedTags":[],"EnableUserPreferenceAccess":true,"AccessSchedules":[],"BlockUnratedItems":[],"EnableRemoteControlOfOtherUsers":false,"EnableSharedDeviceControl":false,"EnableRemoteAccess":true,"EnableLiveTvManagement":false,"EnableLiveTvAccess":true,"EnableMediaPlayback":true,"EnableAudioPlaybackTranscoding":true,"EnableVideoPlaybackTranscoding":true,"EnablePlaybackRemuxing":true,"ForceRemoteSourceTranscoding":false,"EnableContentDeletion":false,"EnableContentDeletionFromFolders":[],"EnableContentDownloading":true,"EnableSyncTranscoding":true,"EnableMediaConversion":true,"EnabledDevices":[],"EnableAllDevices":true,"EnabledChannels":[],"EnableAllChannels":true,"EnabledFolders":[],"EnableAllFolders":true,"InvalidLoginAttemptCount":0,"LoginAttemptsBeforeLockout":-1,"MaxActiveSessions":0,"EnablePublicSharing":false,"BlockedMediaFolders":[],"BlockedChannels":[],"RemoteClientBitrateLimit":0,"AuthenticationProviderId":"Jellyfin.Server.Implementations.Users.DefaultAuthenticationProvider","PasswordResetProviderId":"Jellyfin.Server.Implementations.Users.DefaultPasswordResetProvider","SyncPlayAccess":"CreateAndJoinGroups"}},"SessionInfo":{"PlayState":{"CanSeek":false,"IsPaused":false,"IsMuted":false,"RepeatMode":"RepeatNone"},"AdditionalUsers":[],"Capabilities":{"PlayableMediaTypes":[],"SupportedCommands":[],"SupportsMediaControl":false,"SupportsContentUploading":false,"SupportsPersistentIdentifier":true,"SupportsSync":false},"RemoteEndPoint":"195.39.106.162","PlayableMediaTypes":[],"Id":"50b48ee64a1b8c3898a8b39dbfc99f35","UserId":"a076a5bfc9034f379f5889bc6dafc77b","UserName":"demo","Client":"jellyash_test_testunwatched","LastActivityDate":"2023-05-17T16:16:45.4539645Z","LastPlaybackCheckIn":"0001-01-01T00:00:00.0000000Z","DeviceName":"wrecked","DeviceId":"d732e464-3214-4fce-b0af-57cc9797c9c8","ApplicationVersion":"0.3.4","IsActive":true,"SupportsMediaControl":false,"SupportsRemoteControl":false,"NowPlayingQueue":[],"NowPlayingQueueFullItems":[],"HasCustomDeviceName":false,"ServerId":"713dc3fe952b438fa70ed35e4ef0525a","SupportedCommands":[]},"AccessToken":"3dc7b2dee3834acea23d319c67db1c10","ServerId":"713dc3fe952b438fa70ed35e4ef0525a"}'
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Wed, 17 May 2023 16:16:45 GMT
+      referrer-policy:
+      - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
+      server:
+      - Kestrel
+      strict-transport-security:
+      - max-age=31536000;includeSubDomains;preload
+      transfer-encoding:
+      - chunked
+      x-content-type-options:
+      - nosniff
+      x-response-time-ms:
+      - '103'
+      x-xss-protection:
+      - 1;mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
