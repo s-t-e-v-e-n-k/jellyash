@@ -26,7 +26,8 @@ def all_unwatched(client) -> None:
             ending = "s" if count != 1 else ""
             print(f"{series.Name}: {count} unwatched episode{ending}")
             total += count
-    print(f"Total: {total} unwatched episodes")
+    ending = "s" if total != 1 else ""
+    print(f"Total: {total} unwatched episode{ending}")
 
 
 def specific_unwatched(client, term: str) -> None:
@@ -37,5 +38,7 @@ def specific_unwatched(client, term: str) -> None:
         return
     unwatched = show.UserData.UnplayedItemCount
     total = sum(s.ChildCount for s in client.jellyfin.get_seasons(show.Id))
-    print(f"{show.Name}: {total - unwatched} watched episodes")
-    print(f"{show.Name}: {unwatched} unwatched episodes")
+    ending = "s" if total - unwatched != 1 else ""
+    print(f"{show.Name}: {total - unwatched} watched episode{ending}")
+    ending = "s" if unwatched != 1 else ""
+    print(f"{show.Name}: {unwatched} unwatched episode{ending}")
