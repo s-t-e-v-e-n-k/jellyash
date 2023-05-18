@@ -1,5 +1,5 @@
-dist
-jellyash.egg-info
-venv
+dist/
+venv/
 .tox/
 __pycache__/
+.coverage
