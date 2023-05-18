@@ -39,6 +39,9 @@ class ApiResponse:
     def __getitem__(self, key) -> Item:
         return Item(self.value["Items"][key])
 
+    def _raw_value(self):
+        return self.value
+
     def __len__(self) -> int:
         return self.value["TotalRecordCount"] + self.value["StartIndex"]
 
