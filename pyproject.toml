@@ -1,12 +1,13 @@
 [build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling>=1.4.1"]
+build-backend = "hatchling.build"
 
 [project]
 name = "jellyash"
 dynamic = ["version"]
 license = {file = "LICENSE"}
 readme = "README.md"
+requires-python = ">= 3.7"
 dependencies = [
     "jellyfin_apiclient_python",
     "typing_extensions;python_version<'3.11'",
@@ -18,8 +19,8 @@ create_jellyfin_token = "jellyash.token:create_jellyfin_token"
 nextup = "jellyash.nextup:nextup"
 unwatched = "jellyash.unwatched:unwatched"
 
-[tool.setuptools.dynamic]
-version = {attr = "jellyash.__version__"}
+[tool.hatch.version]
+path = "jellyash/__init__.py"
 
 [tool.ruff]
 line-length=77
