@@ -2,7 +2,7 @@ import argparse
 from decimal import Decimal
 
 from .client import authed_client
-from .series import search_single_show
+from .search import search_single_show
 
 
 def average_duration() -> None:

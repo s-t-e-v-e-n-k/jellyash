@@ -2,7 +2,7 @@ import argparse
 from operator import attrgetter
 
 from .client import authed_client
-from .series import search_single_show
+from .search import search_single_show
 
 
 def unwatched() -> None:
