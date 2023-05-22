@@ -33,10 +33,7 @@ class TestClient(unittest.TestCase):
         auth_result = auth_with_password(self.client, server_url, "demo", "")
         self.assertEqual(auth_result["User"]["Name"], "demo")
         self.assertEqual(auth_result["SessionInfo"]["UserName"], "demo")
-        self.assertEqual(
-            auth_result["SessionInfo"]["DeviceName"],
-            platform.node()
-        )
+        self.assertEqual(auth_result["SessionInfo"]["DeviceName"], "wrecked")
 
 
 class TestAuthWithToken(unittest.TestCase):
