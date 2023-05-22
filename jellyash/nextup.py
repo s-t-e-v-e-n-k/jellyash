@@ -5,7 +5,7 @@ from .client import authed_client
 
 
 def episode_str(episode: Item) -> str:
-    seasonindex = f"{episode.ParentIndexNumber}x{episode.IndexNumber:02}"
+    seasonindex = f"{episode.ParentIndexNumber}x{episode.IndexNumber:0>2}"
     return f"{episode.SeriesName} [{seasonindex}] {episode.Name}"
 
 
