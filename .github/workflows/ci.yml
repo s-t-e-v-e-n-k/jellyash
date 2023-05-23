@@ -22,6 +22,8 @@ jobs:
           pip install tox tox-gh-actions
       - name: Run tests
         run: tox
+        env:
+          COVERAGE_FILE: ".coverage.${{ matrix.python-version }}"
       - name: Upload coverage data
         uses: actions/upload-artifact@v3
         with:
