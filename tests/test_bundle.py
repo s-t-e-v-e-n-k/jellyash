@@ -2,7 +2,7 @@ import unittest
 
 import pytest
 
-from jellyash.bundle import Item
+from jellyash.bundle import ApiResponse, Item
 from .conftest import ClientTest
 
 
@@ -59,4 +59,12 @@ class TestApiResponse(ClientTest):
             "22 - The New Citizen of the United States"
         ]
         self.assertSequenceEqual([m.Name for m in self.search_result], names)
+
+
+class TestUnwrappedApiResponse(ClientTest):
+    @pytest.mark.vcr
+    def test_unwrapped_response(self):
+        resp = self.test_client.jellyfin.try_server()
+        self.assertFalse(isinstance(resp, ApiResponse))
+        self.assertEqual(resp["ServerName"], "Stable Demo")
 
