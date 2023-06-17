@@ -83,9 +83,8 @@ class TestAuthedClient(ClientTest):
     def test_authed_client_non_existant_file(self):
         non_exist = pathlib.Path("/does/not/exist")
         with patch("jellyash.client.CREDENTIALS_FILE", non_exist):
-            with patch("sys.exit", return_value=None) as mock_exit:
+            with self.assertRaises(SystemExit):
                 authed_client()
-                mock_exit.assert_called_once()
 
 
 class TestDetermineAppName(unittest.TestCase):
