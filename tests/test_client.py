@@ -82,6 +82,10 @@ class TestAuthWithToken(unittest.TestCase):
 
 
 class TestAuthedClient(ClientTest):
+    @pytest.fixture(autouse=True)
+    def capsys(self, capsys):
+        self.capsys = capsys
+
     @pytest.mark.vcr
     def test_authed_client(self):
         with tempfile.NamedTemporaryFile() as tmpfile:
@@ -101,8 +105,14 @@ class TestAuthedClient(ClientTest):
                 json.dump(credentials["Servers"][0], f)
             ptf = pathlib.Path(tmpfile.name)
             with patch("jellyash.client.CREDENTIALS_FILE", ptf):
-                with self.assertRaises(SystemExit):
-                    authed_client()
+                with patch("sys.argv", ["test_offline"]):
+                    with self.assertRaises(SystemExit):
+                        authed_client()
+        captured = self.capsys.readouterr()
+        self.assertEqual(
+            captured.out, "test_offline: Failed to establish connection\n"
+            )
+        self.assertEqual(captured.err, "")
 
     def test_authed_client_non_existant_file(self):
         non_exist = pathlib.Path("/does/not/exist")

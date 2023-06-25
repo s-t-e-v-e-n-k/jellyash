@@ -48,7 +48,7 @@ def authed_client():
     except (
         PermissionError, ValueError, JSONDecodeError, ConnectionError
         ) as e:
-        print(e)
+        print(f"{sys.argv[0]}: {e}")
         sys.exit(1)
     return client
 
