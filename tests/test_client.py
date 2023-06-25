@@ -3,7 +3,7 @@ import pathlib
 import platform
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 from jellyfin_apiclient_python.client import JellyfinClient
 import pytest
@@ -56,6 +56,7 @@ class TestAuthWithToken(unittest.TestCase):
     def test_auth_with_token_invalid_json(self):
         with tempfile.NamedTemporaryFile() as tmpfile:
             tmpfile.file.write(b"{{\n")
+            tmpfile.file.flush()
             ptf = pathlib.Path(tmpfile.name)
             with patch("jellyash.client.CREDENTIALS_FILE", ptf):
                 with self.assertRaises(json.decoder.JSONDecodeError):
@@ -66,6 +67,18 @@ class TestAuthWithToken(unittest.TestCase):
         with patch("jellyash.client.CREDENTIALS_FILE", non_exist):
             with self.assertRaises(ValueError):
                 auth_with_token(None)
+
+    def test_auth_with_state_zero(self):
+        with tempfile.NamedTemporaryFile() as tmpfile:
+            tmpfile.file.write(b"{\"User\": \"foo\"}\n")
+            tmpfile.file.flush()
+            ptf = pathlib.Path(tmpfile.name)
+            with patch("jellyash.client.CREDENTIALS_FILE", ptf):
+                client_mock = Mock()
+                client_mock.authenticate.return_value = {"State": 0}
+                with self.assertRaises(ConnectionError):
+                    auth_with_token(client_mock)
+                client_mock.authenticate.assert_called_once()
 
 
 class TestAuthedClient(ClientTest):
@@ -79,6 +92,17 @@ class TestAuthedClient(ClientTest):
             with patch("jellyash.client.CREDENTIALS_FILE", ptf):
                 client = authed_client()
                 self.assertTrue(isinstance(client, JellyfinClient))
+
+    @pytest.mark.vcr
+    def test_authed_client_offline(self):
+        with tempfile.NamedTemporaryFile() as tmpfile:
+            credentials = self.test_client.auth.credentials.get_credentials()
+            with open(tmpfile.name, 'w') as f:
+                json.dump(credentials["Servers"][0], f)
+            ptf = pathlib.Path(tmpfile.name)
+            with patch("jellyash.client.CREDENTIALS_FILE", ptf):
+                with self.assertRaises(SystemExit):
+                    authed_client()
 
     def test_authed_client_non_existant_file(self):
         non_exist = pathlib.Path("/does/not/exist")

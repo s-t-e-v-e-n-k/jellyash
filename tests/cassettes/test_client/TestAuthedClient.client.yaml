@@ -13,12 +13,12 @@ interactions:
       Content-type:
       - application/x-www-form-urlencoded; charset=UTF-8
       User-Agent:
-      - jellyash_test_testauthedclient/0.3.4
+      - jellyash_test_testauthedclient/0.4.0
       X-Application:
-      - jellyash_test_testauthedclient/0.3.4
+      - jellyash_test_testauthedclient/0.4.0
       x-emby-authorization:
-      - MediaBrowser Client=jellyash_test_testauthedclient, Device=wrecked, DeviceId=a83dd3cd-21b6-47b7-aa58-33024978d5e4,
-        Version=0.3.4
+      - MediaBrowser Client=jellyash_test_testauthedclient, Device=wrecked, DeviceId=2c04707d-5fce-4c46-89ad-fd705a2187d9,
+        Version=0.4.0
     method: GET
     uri: https://demo.jellyfin.org/stable/system/info/public
   response:
@@ -29,7 +29,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 13 May 2023 02:42:16 GMT
+      - Tue, 20 Jun 2023 10:30:26 GMT
       referrer-policy:
       - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
       server:
@@ -41,7 +41,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-response-time-ms:
-      - '1'
+      - '2'
       x-xss-protection:
       - 1;mode=block
     status:
@@ -61,12 +61,12 @@ interactions:
       Content-type:
       - application/x-www-form-urlencoded; charset=UTF-8
       User-Agent:
-      - jellyash_test_testauthedclient/0.3.4
+      - jellyash_test_testauthedclient/0.4.0
       X-Application:
-      - jellyash_test_testauthedclient/0.3.4
+      - jellyash_test_testauthedclient/0.4.0
       x-emby-authorization:
-      - MediaBrowser Client=jellyash_test_testauthedclient, Device=wrecked, DeviceId=a83dd3cd-21b6-47b7-aa58-33024978d5e4,
-        Version=0.3.4
+      - MediaBrowser Client=jellyash_test_testauthedclient, Device=wrecked, DeviceId=2c04707d-5fce-4c46-89ad-fd705a2187d9,
+        Version=0.4.0
     method: GET
     uri: https://demo.jellyfin.org/stable/system/info/public
   response:
@@ -77,7 +77,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 13 May 2023 02:42:17 GMT
+      - Tue, 20 Jun 2023 10:30:26 GMT
       referrer-policy:
       - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
       server:
@@ -89,7 +89,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-response-time-ms:
-      - '1'
+      - '0'
       x-xss-protection:
       - 1;mode=block
     status:
@@ -111,22 +111,22 @@ interactions:
       Content-type:
       - application/json
       User-Agent:
-      - jellyash_test_testauthedclient/0.3.4
+      - jellyash_test_testauthedclient/0.4.0
       X-Application:
-      - jellyash_test_testauthedclient/0.3.4
+      - jellyash_test_testauthedclient/0.4.0
       x-emby-authorization:
-      - MediaBrowser Client=jellyash_test_testauthedclient, Device=wrecked, DeviceId=a83dd3cd-21b6-47b7-aa58-33024978d5e4,
-        Version=0.3.4
+      - MediaBrowser Client=jellyash_test_testauthedclient, Device=wrecked, DeviceId=2c04707d-5fce-4c46-89ad-fd705a2187d9,
+        Version=0.4.0
     method: POST
     uri: https://demo.jellyfin.org/stable/Users/AuthenticateByName
   response:
     body:
-      string: '{"User":{"Name":"demo","ServerId":"713dc3fe952b438fa70ed35e4ef0525a","Id":"a076a5bfc9034f379f5889bc6dafc77b","HasPassword":false,"HasConfiguredPassword":false,"HasConfiguredEasyPassword":true,"EnableAutoLogin":false,"LastLoginDate":"2023-05-13T02:42:18.9307019Z","LastActivityDate":"2023-05-13T02:42:18.9307019Z","Configuration":{"AudioLanguagePreference":"","PlayDefaultAudioTrack":true,"SubtitleLanguagePreference":"dut","DisplayMissingEpisodes":true,"GroupedFolders":["f137a2dd21bbc1b99aa5c0f6bf02a805","767bffe4f11c93ef34b805451a696a4e"],"SubtitleMode":"Always","DisplayCollectionsView":false,"EnableLocalPassword":true,"OrderedViews":["b6239cb8a74ff47b07bbf770d40a8e56","f137a2dd21bbc1b99aa5c0f6bf02a805","7e64e319657a9516ec78490da03edccb","767bffe4f11c93ef34b805451a696a4e","9d7ad6afe9afa2dab1a2f6e00ad28fa6"],"LatestItemsExcludes":[],"MyMediaExcludes":["9d7ad6afe9afa2dab1a2f6e00ad28fa6"],"HidePlayedInLatest":false,"RememberAudioSelections":true,"RememberSubtitleSelections":true,"EnableNextEpisodeAutoPlay":true},"Policy":{"IsAdministrator":false,"IsHidden":true,"IsDisabled":false,"BlockedTags":[],"EnableUserPreferenceAccess":true,"AccessSchedules":[],"BlockUnratedItems":[],"EnableRemoteControlOfOtherUsers":false,"EnableSharedDeviceControl":false,"EnableRemoteAccess":true,"EnableLiveTvManagement":false,"EnableLiveTvAccess":true,"EnableMediaPlayback":true,"EnableAudioPlaybackTranscoding":true,"EnableVideoPlaybackTranscoding":true,"EnablePlaybackRemuxing":true,"ForceRemoteSourceTranscoding":false,"EnableContentDeletion":false,"EnableContentDeletionFromFolders":[],"EnableContentDownloading":true,"EnableSyncTranscoding":true,"EnableMediaConversion":true,"EnabledDevices":[],"EnableAllDevices":true,"EnabledChannels":[],"EnableAllChannels":true,"EnabledFolders":[],"EnableAllFolders":true,"InvalidLoginAttemptCount":0,"LoginAttemptsBeforeLockout":-1,"MaxActiveSessions":0,"EnablePublicSharing":false,"BlockedMediaFolders":[],"BlockedChannels":[],"RemoteClientBitrateLimit":0,"AuthenticationProviderId":"Jellyfin.Server.Implementations.Users.DefaultAuthenticationProvider","PasswordResetProviderId":"Jellyfin.Server.Implementations.Users.DefaultPasswordResetProvider","SyncPlayAccess":"CreateAndJoinGroups"}},"SessionInfo":{"PlayState":{"CanSeek":false,"IsPaused":false,"IsMuted":false,"RepeatMode":"RepeatNone"},"AdditionalUsers":[],"Capabilities":{"PlayableMediaTypes":[],"SupportedCommands":[],"SupportsMediaControl":false,"SupportsContentUploading":false,"SupportsPersistentIdentifier":true,"SupportsSync":false},"RemoteEndPoint":"2403:5807:3a:0:1e79:6f72:cc02:5647","PlayableMediaTypes":[],"Id":"2bb007d80776989f500f158f94b29c54","UserId":"a076a5bfc9034f379f5889bc6dafc77b","UserName":"demo","Client":"jellyash_test_testauthedclient","LastActivityDate":"2023-05-13T02:42:18.9633434Z","LastPlaybackCheckIn":"0001-01-01T00:00:00.0000000Z","DeviceName":"wrecked","DeviceId":"a83dd3cd-21b6-47b7-aa58-33024978d5e4","ApplicationVersion":"0.3.4","IsActive":true,"SupportsMediaControl":false,"SupportsRemoteControl":false,"NowPlayingQueue":[],"NowPlayingQueueFullItems":[],"HasCustomDeviceName":false,"ServerId":"713dc3fe952b438fa70ed35e4ef0525a","SupportedCommands":[]},"AccessToken":"d1912d06a0e146d4bb4dc2244df9287c","ServerId":"713dc3fe952b438fa70ed35e4ef0525a"}'
+      string: '{"User":{"Name":"demo","ServerId":"713dc3fe952b438fa70ed35e4ef0525a","Id":"a076a5bfc9034f379f5889bc6dafc77b","HasPassword":false,"HasConfiguredPassword":false,"HasConfiguredEasyPassword":true,"EnableAutoLogin":false,"LastLoginDate":"2023-06-20T10:30:27.9183696Z","LastActivityDate":"2023-06-20T10:30:27.9183696Z","Configuration":{"AudioLanguagePreference":"","PlayDefaultAudioTrack":true,"SubtitleLanguagePreference":"dut","DisplayMissingEpisodes":true,"GroupedFolders":["f137a2dd21bbc1b99aa5c0f6bf02a805","767bffe4f11c93ef34b805451a696a4e"],"SubtitleMode":"Always","DisplayCollectionsView":false,"EnableLocalPassword":true,"OrderedViews":["b6239cb8a74ff47b07bbf770d40a8e56","f137a2dd21bbc1b99aa5c0f6bf02a805","7e64e319657a9516ec78490da03edccb","767bffe4f11c93ef34b805451a696a4e","9d7ad6afe9afa2dab1a2f6e00ad28fa6"],"LatestItemsExcludes":[],"MyMediaExcludes":["9d7ad6afe9afa2dab1a2f6e00ad28fa6"],"HidePlayedInLatest":false,"RememberAudioSelections":true,"RememberSubtitleSelections":true,"EnableNextEpisodeAutoPlay":true},"Policy":{"IsAdministrator":false,"IsHidden":true,"IsDisabled":false,"BlockedTags":[],"EnableUserPreferenceAccess":true,"AccessSchedules":[],"BlockUnratedItems":[],"EnableRemoteControlOfOtherUsers":false,"EnableSharedDeviceControl":false,"EnableRemoteAccess":true,"EnableLiveTvManagement":false,"EnableLiveTvAccess":true,"EnableMediaPlayback":true,"EnableAudioPlaybackTranscoding":true,"EnableVideoPlaybackTranscoding":true,"EnablePlaybackRemuxing":true,"ForceRemoteSourceTranscoding":false,"EnableContentDeletion":false,"EnableContentDeletionFromFolders":[],"EnableContentDownloading":true,"EnableSyncTranscoding":true,"EnableMediaConversion":true,"EnabledDevices":[],"EnableAllDevices":true,"EnabledChannels":[],"EnableAllChannels":true,"EnabledFolders":[],"EnableAllFolders":true,"InvalidLoginAttemptCount":0,"LoginAttemptsBeforeLockout":-1,"MaxActiveSessions":0,"EnablePublicSharing":false,"BlockedMediaFolders":[],"BlockedChannels":[],"RemoteClientBitrateLimit":0,"AuthenticationProviderId":"Jellyfin.Server.Implementations.Users.DefaultAuthenticationProvider","PasswordResetProviderId":"Jellyfin.Server.Implementations.Users.DefaultPasswordResetProvider","SyncPlayAccess":"CreateAndJoinGroups"}},"SessionInfo":{"PlayState":{"CanSeek":false,"IsPaused":false,"IsMuted":false,"RepeatMode":"RepeatNone"},"AdditionalUsers":[],"Capabilities":{"PlayableMediaTypes":[],"SupportedCommands":[],"SupportsMediaControl":false,"SupportsContentUploading":false,"SupportsPersistentIdentifier":true,"SupportsSync":false},"RemoteEndPoint":"103.246.103.99","PlayableMediaTypes":[],"Id":"b7d79ef2a71a561bbb97e28de9ea4ae7","UserId":"a076a5bfc9034f379f5889bc6dafc77b","UserName":"demo","Client":"jellyash_test_testauthedclient","LastActivityDate":"2023-06-20T10:30:27.9496472Z","LastPlaybackCheckIn":"0001-01-01T00:00:00.0000000Z","DeviceName":"wrecked","DeviceId":"2c04707d-5fce-4c46-89ad-fd705a2187d9","ApplicationVersion":"0.4.0","IsActive":true,"SupportsMediaControl":false,"SupportsRemoteControl":false,"NowPlayingQueue":[],"NowPlayingQueueFullItems":[],"HasCustomDeviceName":false,"ServerId":"713dc3fe952b438fa70ed35e4ef0525a","SupportedCommands":[]},"AccessToken":"efb1cef07e9c42edbc4eb622bc13beff","ServerId":"713dc3fe952b438fa70ed35e4ef0525a"}'
     headers:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Sat, 13 May 2023 02:42:18 GMT
+      - Tue, 20 Jun 2023 10:30:27 GMT
       referrer-policy:
       - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
       server:
@@ -138,7 +138,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-response-time-ms:
-      - '41'
+      - '38'
       x-xss-protection:
       - 1;mode=block
     status:

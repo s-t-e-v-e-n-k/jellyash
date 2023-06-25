@@ -1,5 +1,6 @@
 import inspect
 import json
+from json.decoder import JSONDecodeError
 import pathlib
 import platform
 import sys
@@ -7,6 +8,7 @@ from typing import Optional
 from uuid import uuid4
 
 from jellyfin_apiclient_python.client import JellyfinClient
+from jellyfin_apiclient_python.connection_manager import CONNECTION_STATE
 
 from . import __version__
 from .bundle import WrappedAPI
@@ -34,14 +36,18 @@ def auth_with_token(client) -> None:
         raise ValueError(f"{sys.argv[0]}: Requires credential file.")
     with open(CREDENTIALS_FILE, "r") as f:
         credentials = json.load(f)
-    client.authenticate({"Servers": [credentials]}, discover=False)
+    state = client.authenticate({"Servers": [credentials]}, discover=False)
+    if state["State"] != CONNECTION_STATE["SignedIn"]:
+        raise ConnectionError("Failed to establish connection")
 
 
 def authed_client():
     client = create_client(None)
     try:
         auth_with_token(client)
-    except (PermissionError, ValueError, json.decoder.JSONDecodeError) as e:
+    except (
+        PermissionError, ValueError, JSONDecodeError, ConnectionError
+        ) as e:
         print(e)
         sys.exit(1)
     return client

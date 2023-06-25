@@ -13,12 +13,12 @@ interactions:
       Content-type:
       - application/x-www-form-urlencoded; charset=UTF-8
       User-Agent:
-      - jellyfin___init__/0.4.0
+      - jellyfin___init__/0.3.4
       X-Application:
-      - jellyfin___init__/0.4.0
+      - jellyfin___init__/0.3.4
       x-emby-authorization:
-      - MediaBrowser Client=jellyfin___init__, Device=wrecked, DeviceId=01442e7c-472f-40ba-b03c-d5abf79ead80,
-        Version=0.4.0
+      - MediaBrowser Client=jellyfin___init__, Device=wrecked, DeviceId=2f4fd902-d298-4c7f-9ef3-052b25045b9b,
+        Version=0.3.4
     method: GET
     uri: https://demo.jellyfin.org/stable/system/info/public
   response:
@@ -29,7 +29,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Tue, 20 Jun 2023 10:30:28 GMT
+      - Fri, 12 May 2023 08:00:56 GMT
       referrer-policy:
       - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
       server:
@@ -41,7 +41,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-response-time-ms:
-      - '1'
+      - '74'
       x-xss-protection:
       - 1;mode=block
     status:
@@ -61,40 +61,37 @@ interactions:
       Content-type:
       - application/x-www-form-urlencoded; charset=UTF-8
       User-Agent:
-      - jellyfin___init__/0.4.0
+      - jellyfin___init__/0.3.4
       X-Application:
-      - jellyfin___init__/0.4.0
+      - jellyfin___init__/0.3.4
       X-MediaBrowser-Token:
-      - efb1cef07e9c42edbc4eb622bc13beff
+      - 88403c92f08d40ca844fff87bfc0f772
       x-emby-authorization:
-      - MediaBrowser Client=jellyfin___init__, Device=wrecked, DeviceId=01442e7c-472f-40ba-b03c-d5abf79ead80,
-        Version=0.4.0
+      - MediaBrowser Client=jellyfin___init__, Device=wrecked, DeviceId=2f4fd902-d298-4c7f-9ef3-052b25045b9b,
+        Version=0.3.4
     method: GET
     uri: https://demo.jellyfin.org/stable/system/info
   response:
     body:
-      string: '{"OperatingSystemDisplayName":"Linux","HasPendingRestart":false,"IsShuttingDown":false,"SupportsLibraryMonitor":true,"WebSocketPortNumber":8096,"CompletedInstallations":[],"CanSelfRestart":false,"CanLaunchWebBrowser":false,"ProgramDataPath":"/config","WebPath":"/jellyfin/jellyfin-web","ItemsByNamePath":"/config/metadata","CachePath":"/cache","LogPath":"/config/log","InternalMetadataPath":"/config/metadata","TranscodingTempPath":"/config/transcodes","HasUpdateAvailable":false,"EncoderLocation":"NotFound","SystemArchitecture":"X64","LocalAddress":"http://172.17.0.2:8096/stable","ServerName":"Stable
-        Demo","Version":"10.8.10","OperatingSystem":"Linux","Id":"713dc3fe952b438fa70ed35e4ef0525a"}'
+      string: ''
     headers:
-      content-type:
-      - application/json; charset=utf-8
+      content-length:
+      - '0'
       date:
-      - Tue, 20 Jun 2023 10:30:29 GMT
+      - Fri, 12 May 2023 08:00:56 GMT
       referrer-policy:
       - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
       server:
       - Kestrel
       strict-transport-security:
       - max-age=31536000;includeSubDomains;preload
-      transfer-encoding:
-      - chunked
       x-content-type-options:
       - nosniff
       x-response-time-ms:
-      - '95'
+      - '25'
       x-xss-protection:
       - 1;mode=block
     status:
-      code: 200
-      message: OK
+      code: 401
+      message: Unauthorized
 version: 1
