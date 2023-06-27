@@ -13,6 +13,9 @@ dependencies = [
     "typing_extensions;python_version<'3.11'",
 ]
 
+[project.urls]
+Source = "https://github.com/s-t-e-v-e-n-k/jellyash"
+
 [project.scripts]
 average_duration = "jellyash.duration:average_duration"
 create_jellyfin_token = "jellyash.token:create_jellyfin_token"
