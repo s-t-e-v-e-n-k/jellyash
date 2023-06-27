@@ -1,6 +1,5 @@
-import argparse
-
 from .bundle import Item
+from .cli import argparse_parser
 from .client import authed_client
 
 
@@ -11,7 +10,7 @@ def episode_str(episode: Item) -> str:
 
 def nextup() -> None:
     client = authed_client()
-    parser = argparse.ArgumentParser()
+    parser = argparse_parser()
     parser.add_argument("-l", "--limit", dest="limit", type=int, default=30)
     args = parser.parse_args()
     for episode in client.jellyfin.get_next(limit=args.limit):

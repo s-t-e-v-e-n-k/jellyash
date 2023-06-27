@@ -1,6 +1,6 @@
-import argparse
 from decimal import Decimal
 
+from .cli import argparse_parser
 from .client import authed_client
 from .search import search_single_show
 
@@ -21,7 +21,7 @@ def calculate_duration(client, show: str) -> str:
 
 
 def average_duration() -> None:
-    parser = argparse.ArgumentParser()
+    parser = argparse_parser()
     parser.add_argument("show", nargs="+")
     args = parser.parse_args()
     client = authed_client()

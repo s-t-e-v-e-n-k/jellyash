@@ -1,13 +1,13 @@
-import argparse
 from operator import attrgetter
 
+from .cli import argparse_parser
 from .client import authed_client
 from .search import search_single_show
 
 
 def unwatched() -> None:
     client = authed_client()
-    parser = argparse.ArgumentParser()
+    parser = argparse_parser()
     parser.add_argument("show", nargs="*")
     args = parser.parse_args()
     if not args.show:
