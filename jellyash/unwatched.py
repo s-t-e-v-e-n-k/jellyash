@@ -22,8 +22,7 @@ def all_unwatched(client) -> None:
     )
     total = 0
     for series in sorted(r, key=attrgetter("Name")):
-        count = series.UserData.UnplayedItemCount
-        if count > 0:
+        if (count := series.UserData.UnplayedItemCount) > 0:
             ending = "s" if count != 1 else ""
             print(f"{series.Name}: {count} unwatched episode{ending}")
             total += count
