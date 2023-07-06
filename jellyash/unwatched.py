@@ -5,6 +5,10 @@ from .client import authed_client
 from .search import search_single_show
 
 
+def ending(count):
+    return "s" if count != 1 else ""
+
+
 def unwatched() -> None:
     client = authed_client()
     parser = argparse_parser()
@@ -23,11 +27,9 @@ def all_unwatched(client) -> None:
     total = 0
     for series in sorted(r, key=attrgetter("Name")):
         if (count := series.UserData.UnplayedItemCount) > 0:
-            ending = "s" if count != 1 else ""
-            print(f"{series.Name}: {count} unwatched episode{ending}")
+            print(f"{series.Name}: {count} unwatched episode{ending(count)}")
             total += count
-    ending = "s" if total != 1 else ""
-    print(f"Total: {total} unwatched episode{ending}")
+    print(f"Total: {total} unwatched episode{ending(total)}")
 
 
 def specific_unwatched(client, term: str) -> None:
@@ -38,7 +40,6 @@ def specific_unwatched(client, term: str) -> None:
         return
     unwatched = show.UserData.UnplayedItemCount
     total = sum(s.ChildCount for s in client.jellyfin.get_seasons(show.Id))
-    ending = "s" if total - unwatched != 1 else ""
-    print(f"{show.Name}: {total - unwatched} watched episode{ending}")
-    ending = "s" if unwatched != 1 else ""
-    print(f"{show.Name}: {unwatched} unwatched episode{ending}")
+    count = total - unwatched
+    print(f"{show.Name}: {count} watched episode{ending(count)}")
+    print(f"{show.Name}: {unwatched} unwatched episode{ending(unwatched)}")

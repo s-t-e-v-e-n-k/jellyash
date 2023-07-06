@@ -6,7 +6,16 @@ import pytest
 
 from .conftest import ClientTest
 
-from jellyash.unwatched import all_unwatched, unwatched, specific_unwatched
+from jellyash.unwatched import (
+    all_unwatched, ending, specific_unwatched, unwatched
+    )
+
+
+class TestEnding(unittest.TestCase):
+    def test_ending(self):
+        self.assertEqual("s", ending(0))
+        self.assertEqual("", ending(1))
+        self.assertEqual("s", ending(2))
 
 
 class TestUnwatched(ClientTest):
