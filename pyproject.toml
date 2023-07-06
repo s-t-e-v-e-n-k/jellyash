@@ -27,3 +27,7 @@ path = "jellyash/__init__.py"
 
 [tool.ruff]
 line-length=77
+
+[[tool.mypy.overrides]]
+module = "jellyfin_apiclient_python.*"
+ignore_missing_imports = true
