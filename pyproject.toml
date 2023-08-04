@@ -26,9 +26,9 @@ unwatched = "jellyash.unwatched:unwatched"
 path = "jellyash/__init__.py"
 
 [tool.ruff]
-line-length=77
-fix=true
-show-source=true
+line-length = 77
+fix = true
+show-source = true
 
 [[tool.mypy.overrides]]
 module = "jellyfin_apiclient_python.*"
