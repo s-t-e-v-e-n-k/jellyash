@@ -27,6 +27,7 @@ path = "jellyash/__init__.py"
 
 [tool.ruff]
 line-length = 77
+select = ["E", "F", "W", "I", "N", "U"]
 fix = true
 show-source = true
 

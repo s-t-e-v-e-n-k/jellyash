@@ -3,16 +3,20 @@ import pathlib
 import platform
 import tempfile
 import unittest
-from unittest.mock import patch, Mock
+from unittest.mock import Mock, patch
 
-from jellyfin_apiclient_python.client import JellyfinClient
 import pytest
+from jellyfin_apiclient_python.client import JellyfinClient
 
 from jellyash import __version__
 from jellyash.client import (
-    authed_client, auth_with_password, auth_with_token, create_client,
-    determine_app_name
-    )
+    auth_with_password,
+    auth_with_token,
+    authed_client,
+    create_client,
+    determine_app_name,
+)
+
 from .conftest import ClientTest
 
 
@@ -26,7 +30,7 @@ class TestClient(unittest.TestCase):
         self.assertEqual(data['app.device_name'], platform.node())
         self.assertEqual(data['app.version'], __version__)
         self.assertTrue(data['auth.ssl'])
-    
+
     @pytest.mark.vcr
     def test_auth_with_password(self):
         server_url = "https://demo.jellyfin.org/stable"

@@ -1,14 +1,14 @@
 import argparse
-from collections import namedtuple
 import unittest
+from collections import namedtuple
 from unittest.mock import Mock, patch
 
 import pytest
 
-from .conftest import ClientTest
-
 from jellyash.bundle import Item
 from jellyash.nextup import episode_str, nextup
+
+from .conftest import ClientTest
 
 
 class TestEpisodeStr(ClientTest):

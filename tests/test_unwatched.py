@@ -4,11 +4,14 @@ from unittest.mock import patch
 
 import pytest
 
-from .conftest import ClientTest
-
 from jellyash.unwatched import (
-    all_unwatched, ending, specific_unwatched, unwatched
-    )
+    all_unwatched,
+    ending,
+    specific_unwatched,
+    unwatched,
+)
+
+from .conftest import ClientTest
 
 
 class TestEnding(unittest.TestCase):

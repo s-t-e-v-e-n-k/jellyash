@@ -3,9 +3,9 @@ from unittest.mock import patch
 
 import pytest
 
-from .conftest import ClientTest
-
 from jellyash.duration import average_duration, calculate_duration
+
+from .conftest import ClientTest
 
 
 class TestDuration(ClientTest):

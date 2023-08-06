@@ -1,6 +1,6 @@
-from collections import namedtuple
 import json
 import unittest
+from collections import namedtuple
 from unittest.mock import Mock
 
 from jellyash.bundle import ApiResponse

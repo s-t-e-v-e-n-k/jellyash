@@ -1,9 +1,9 @@
 import inspect
 import json
-from json.decoder import JSONDecodeError
 import pathlib
 import platform
 import sys
+from json.decoder import JSONDecodeError
 from typing import Optional
 from uuid import uuid4
 
@@ -34,7 +34,7 @@ def auth_with_password(client, address: str, user: str, password: str):
 def auth_with_token(client) -> None:
     if not CREDENTIALS_FILE.is_file():
         raise ValueError(f"{sys.argv[0]}: Requires credential file.")
-    with open(CREDENTIALS_FILE, "r") as f:
+    with open(CREDENTIALS_FILE) as f:
         credentials = json.load(f)
     state = client.authenticate({"Servers": [credentials]}, discover=False)
     if state["State"] != CONNECTION_STATE["SignedIn"]:

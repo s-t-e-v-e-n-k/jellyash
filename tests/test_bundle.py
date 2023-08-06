@@ -3,6 +3,7 @@ import unittest
 import pytest
 
 from jellyash.bundle import ApiResponse, Item
+
 from .conftest import ClientTest
 
 
