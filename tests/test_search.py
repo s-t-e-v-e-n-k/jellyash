@@ -28,11 +28,15 @@ class TestSearch(unittest.TestCase):
 
     def test_multiple_terms_not_exact(self):
         result = search_single_show(self.client, "NCIS: ")
-        self.assertEqual(result.Name, "NCIS: New Orleans")
+        self.assertEqual(result.Name, "NCIS: Hawai'i")
 
     def test_multiple_terms_exact(self):
         result = search_single_show(self.client, "Maid")
         self.assertEqual(result.Name, "Maid")
+
+    def test_multiple_terms_exact_with_space(self):
+        result = search_single_show(self.client, "The Blacklist")
+        self.assertEqual(result.Name, "The Blacklist")
 
     def cassette_name(self, test):
         return f"tests/cassettes/test_search/TestSearch.{test}.yaml"
@@ -44,6 +48,7 @@ class TestSearch(unittest.TestCase):
             "test_single_term": "Chernobyl",
             "test_multiple_terms_not_exact": "NCIS: ",
             "test_multiple_terms_exact": "Maid",
+            "test_multiple_terms_exact_with_space": "The Blacklist",
             }
         for test in test_cassettes:
             result = client.jellyfin.search_media_items(
