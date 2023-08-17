@@ -49,7 +49,8 @@ class ApiResponse:
 class WrappedAPI(API):
     def _get(self, handler, params=None):
         resp = super()._get(handler, params=params)
-        if set(("Items", "TotalRecordCount")) <= set(resp.keys()):
-            return ApiResponse(resp)
+        if isinstance(resp, dict):
+            if set(("Items", "TotalRecordCount")) <= set(resp.keys()):
+                return ApiResponse(resp)
         return resp
 

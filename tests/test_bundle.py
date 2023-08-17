@@ -64,8 +64,13 @@ class TestApiResponse(ClientTest):
 
 class TestUnwrappedApiResponse(ClientTest):
     @pytest.mark.vcr
-    def test_unwrapped_response(self):
+    def test_unwrapped_dict_response(self):
         resp = self.test_client.jellyfin.try_server()
         self.assertFalse(isinstance(resp, ApiResponse))
         self.assertEqual(resp["ServerName"], "Stable Demo")
+
+    @pytest.mark.vcr
+    def test_unwrapped_bool_response(self):
+        resp = self.test_client.jellyfin._get("QuickConnect/Enabled")
+        self.assertFalse(resp)
 

@@ -1,0 +1,49 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Charset:
+      - UTF-8,*
+      Accept-encoding:
+      - gzip
+      Connection:
+      - keep-alive
+      Content-type:
+      - application/json
+      User-Agent:
+      - jellyash_test_testunwrappedapiresponse/0.5.0
+      X-MediaBrowser-Token:
+      - 5ea57eefe33c44e7b8ec4fd19895eab7
+      x-emby-authorization:
+      - MediaBrowser Client=jellyash_test_testunwrappedapiresponse, Device=wrecked,
+        DeviceId=2b4c9cde-c0fe-4fc6-9590-f8eeb51bf0cf, Version=0.5.0, UserId=a076a5bfc9034f379f5889bc6dafc77b
+    method: GET
+    uri: https://demo.jellyfin.org/stable/QuickConnect/Enabled
+  response:
+    body:
+      string: 'false'
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Thu, 17 Aug 2023 00:53:07 GMT
+      referrer-policy:
+      - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
+      server:
+      - Kestrel
+      strict-transport-security:
+      - max-age=31536000;includeSubDomains;preload
+      transfer-encoding:
+      - chunked
+      x-content-type-options:
+      - nosniff
+      x-response-time-ms:
+      - '1'
+      x-xss-protection:
+      - 1;mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
