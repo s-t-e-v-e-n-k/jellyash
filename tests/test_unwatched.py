@@ -6,7 +6,7 @@ import pytest
 
 from jellyash.unwatched import (
     all_unwatched,
-    ending,
+    pluralized_str,
     specific_unwatched,
     unwatched,
 )
@@ -14,11 +14,14 @@ from jellyash.unwatched import (
 from .conftest import ClientTest
 
 
-class TestEnding(unittest.TestCase):
-    def test_ending(self):
-        self.assertEqual("s", ending(0))
-        self.assertEqual("", ending(1))
-        self.assertEqual("s", ending(2))
+class TestPluralizedStr(unittest.TestCase):
+    def test_pluralized_str(self):
+        self.assertEqual("0 unwatched episodes", pluralized_str(0))
+        self.assertEqual("1 unwatched episode", pluralized_str(1))
+        self.assertEqual("2 unwatched episodes", pluralized_str(2))
+        self.assertEqual(
+            "1 dewatched episode", pluralized_str(1, prefix="de")
+        )
 
 
 class TestUnwatched(ClientTest):
