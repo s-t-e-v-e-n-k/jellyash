@@ -1,0 +1,98 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Charset:
+      - UTF-8,*
+      Accept-encoding:
+      - gzip
+      Connection:
+      - keep-alive
+      Content-type:
+      - application/json
+      User-Agent:
+      - jellyash_test_testunwatched/0.5.1
+      X-MediaBrowser-Token:
+      - 077919a559e04094896846f622257594
+      x-emby-authorization:
+      - MediaBrowser Client=jellyash_test_testunwatched, Device=wrecked, DeviceId=6aa06a0d-6af8-4545-a99b-ea512901c041,
+        Version=0.5.1, UserId=a076a5bfc9034f379f5889bc6dafc77b
+    method: GET
+    uri: https://demo.jellyfin.org/stable/Users/a076a5bfc9034f379f5889bc6dafc77b/Items?searchTerm=Pioneer+One&Recursive=True&IncludeItemTypes=Series&Limit=20
+  response:
+    body:
+      string: '{"Items":[{"Name":"Pioneer One","ServerId":"713dc3fe952b438fa70ed35e4ef0525a","Id":"05991932707d2c668148d8ed19cdb544","PremiereDate":"2010-06-16T00:00:00.0000000Z","OfficialRating":"NR","ChannelId":null,"CommunityRating":6.9,"RunTimeTicks":17999998976,"ProductionYear":2010,"IsFolder":true,"Type":"Series","UserData":{"UnplayedItemCount":1,"PlaybackPositionTicks":0,"PlayCount":0,"IsFavorite":false,"Played":false,"Key":"170551"},"Status":"Ended","AirDays":[],"ImageTags":{"Primary":"63bd1ece25c9fdb2d91b6b4d48ae07f1","Banner":"f06d9e317cb59d0f050e2fbd1fe64e54"},"BackdropImageTags":["b8f1332f5ca6e72d8129c4bceadd100b"],"ImageBlurHashes":{"Backdrop":{"b8f1332f5ca6e72d8129c4bceadd100b":"WiI4hd}q,--=x]t6~WrqZ~xvtRoeIpD*IUjFniaen%aeafjFaLV["},"Primary":{"63bd1ece25c9fdb2d91b6b4d48ae07f1":"drKJ[S-pX8M{~BxaX8M{8^RjWXNGi^RjRjog-;RkRjt7"},"Banner":{"f06d9e317cb59d0f050e2fbd1fe64e54":"HlH_S*=yrC$ext%MtRtRWn~WxZeTs8s.t7ozofWB"}},"LocationType":"FileSystem","EndDate":"2011-12-13T00:00:00.0000000Z"}],"TotalRecordCount":1,"StartIndex":0}'
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Fri, 18 Aug 2023 04:44:49 GMT
+      referrer-policy:
+      - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
+      server:
+      - Kestrel
+      strict-transport-security:
+      - max-age=31536000;includeSubDomains;preload
+      transfer-encoding:
+      - chunked
+      x-content-type-options:
+      - nosniff
+      x-response-time-ms:
+      - '8'
+      x-xss-protection:
+      - 1;mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Charset:
+      - UTF-8,*
+      Accept-encoding:
+      - gzip
+      Connection:
+      - keep-alive
+      Content-type:
+      - application/json
+      User-Agent:
+      - jellyash_test_testunwatched/0.5.1
+      X-MediaBrowser-Token:
+      - 077919a559e04094896846f622257594
+      x-emby-authorization:
+      - MediaBrowser Client=jellyash_test_testunwatched, Device=wrecked, DeviceId=6aa06a0d-6af8-4545-a99b-ea512901c041,
+        Version=0.5.1, UserId=a076a5bfc9034f379f5889bc6dafc77b
+    method: GET
+    uri: https://demo.jellyfin.org/stable/Shows/05991932707d2c668148d8ed19cdb544/Seasons?UserId=a076a5bfc9034f379f5889bc6dafc77b&EnableImages=True&Fields=Path%2CGenres%2CSortName%2CStudios%2CWriter%2CTaglines%2CLocalTrailerCount%2COfficialRating%2CCumulativeRunTimeTicks%2CItemCounts%2CMetascore%2CAirTime%2CDateCreated%2CPeople%2COverview%2CCriticRating%2CCriticRatingSummary%2CEtag%2CShortOverview%2CProductionLocations%2CTags%2CProviderIds%2CParentId%2CRemoteTrailers%2CSpecialEpisodeNumbers%2CMediaSources%2CVoteCount%2CRecursiveItemCount%2CPrimaryImageAspectRatio
+  response:
+    body:
+      string: '{"Items":[{"Name":"Season 1","ServerId":"713dc3fe952b438fa70ed35e4ef0525a","Id":"0bf82b6ecd61047b8dea0eb0035ad364","Etag":"7bbc26ed572a7ca4ca5ca2278c4b59dd","DateCreated":"2019-11-29T03:46:20.9183807Z","SortName":"0001","PremiereDate":"2010-06-16T00:00:00.0000000Z","Path":"/media/TV
+        Shows/Pioneer One (2010)/Season 01","ChannelId":null,"Taglines":[],"Genres":[],"ProductionYear":2010,"IndexNumber":1,"RemoteTrailers":[],"ProviderIds":{},"IsFolder":true,"ParentId":"05991932707d2c668148d8ed19cdb544","Type":"Season","People":[],"Studios":[],"GenreItems":[],"ParentBackdropItemId":"05991932707d2c668148d8ed19cdb544","ParentBackdropImageTags":["b8f1332f5ca6e72d8129c4bceadd100b"],"LocalTrailerCount":0,"UserData":{"PlayedPercentage":50,"UnplayedItemCount":1,"PlaybackPositionTicks":0,"PlayCount":0,"IsFavorite":false,"Played":false,"Key":"170551001"},"RecursiveItemCount":2,"ChildCount":2,"SeriesName":"Pioneer
+        One","SeriesId":"05991932707d2c668148d8ed19cdb544","Tags":[],"PrimaryImageAspectRatio":0.6920415224913494,"SeriesPrimaryImageTag":"63bd1ece25c9fdb2d91b6b4d48ae07f1","ImageTags":{"Primary":"792441701f42e7ddbd69888686eae67c"},"BackdropImageTags":[],"ImageBlurHashes":{"Primary":{"792441701f42e7ddbd69888686eae67c":"djMYf^^\u002BODRj=Gs,XSR\u002B0LR5WBR\u002BxuWEVta{OsWYsAba","63bd1ece25c9fdb2d91b6b4d48ae07f1":"drKJ[S-pX8M{~BxaX8M{8^RjWXNGi^RjRjog-;RkRjt7"},"Backdrop":{"b8f1332f5ca6e72d8129c4bceadd100b":"WiI4hd}q,--=x]t6~WrqZ~xvtRoeIpD*IUjFniaen%aeafjFaLV["}},"LocationType":"FileSystem"}],"TotalRecordCount":1,"StartIndex":0}'
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Fri, 18 Aug 2023 04:44:50 GMT
+      referrer-policy:
+      - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
+      server:
+      - Kestrel
+      strict-transport-security:
+      - max-age=31536000;includeSubDomains;preload
+      transfer-encoding:
+      - chunked
+      x-content-type-options:
+      - nosniff
+      x-response-time-ms:
+      - '17'
+      x-xss-protection:
+      - 1;mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,4 +1,5 @@
 from operator import attrgetter
+from typing import Optional
 
 from .cli import argparse_parser
 from .client import authed_client
@@ -13,11 +14,14 @@ def unwatched() -> None:
     client = authed_client()
     parser = argparse_parser()
     parser.add_argument("show", nargs="*")
+    parser.add_argument("-s", "--season", type=int)
     args = parser.parse_args()
+    if args.season and not args.show:
+        parser.error("Need to specify a show when specifiying a season")
     if not args.show:
         all_unwatched(client)
     else:
-        specific_unwatched(client, " ".join(args.show))
+        specific_unwatched(client, " ".join(args.show), season=args.season)
 
 
 def all_unwatched(client) -> None:
@@ -32,14 +36,23 @@ def all_unwatched(client) -> None:
     print(f"Total: {pluralized_str(total)}")
 
 
-def specific_unwatched(client, term: str) -> None:
+def specific_unwatched(client, term: str, season: Optional[int]) -> None:
     try:
         show = search_single_show(client, term)
     except ValueError as e:
         print(str(e))
         return
+    seasons = client.jellyfin.get_seasons(show.Id)
+    name = f"{show.Name}"
+    if season:
+        show = next((s for s in seasons if s.IndexNumber == season), None)
+        if show is None:
+            print(f"Can not find season {season} of {name}")
+            return
+        name += f", Season {season}"
+        total = show.ChildCount
+    else:
+        total = sum(s.ChildCount for s in seasons)
     unwatched = show.UserData.UnplayedItemCount
-    total = sum(s.ChildCount for s in client.jellyfin.get_seasons(show.Id))
-    count = total - unwatched
-    print(f"{show.Name}: {pluralized_str(count, prefix='')}")
-    print(f"{show.Name}: {pluralized_str(unwatched)}")
+    print(f"{name}: {pluralized_str(total - unwatched, prefix='')}")
+    print(f"{name}: {pluralized_str(unwatched)}")
