@@ -45,8 +45,9 @@ def specific_unwatched(client, term: str, season: Optional[int]) -> None:
     seasons = client.jellyfin.get_seasons(show.Id)
     name = f"{show.Name}"
     if season:
-        show = next((s for s in seasons if s.IndexNumber == season), None)
-        if show is None:
+        try:
+            show = next(s for s in seasons if s.IndexNumber == season)
+        except StopIteration:
             print(f"Can not find season {season} of {name}")
             return
         name += f", Season {season}"
