@@ -3,7 +3,7 @@ from typing import Dict, Iterator, Union
 
 if sys.version_info >= (3, 11):  # pragma: no cover
     from typing import Self
-else:
+else:  # pragma: no cover
     from typing_extensions import Self
 
 from jellyfin_apiclient_python.api import API
