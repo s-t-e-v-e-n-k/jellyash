@@ -7,7 +7,6 @@ from .client import CREDENTIALS_FILE, auth_with_password, create_client
 
 
 def create_jellyfin_token() -> None:
-    client = create_client("create_jellyfin_token")
     parser = argparse_parser()
     parser.add_argument("-u", "--user", dest="user", default=getuser())
     parser.add_argument(
@@ -15,6 +14,7 @@ def create_jellyfin_token() -> None:
     )
     args = parser.parse_args()
     password = getpassword()
+    client = create_client("create_jellyfin_token")
     result = auth_with_password(client, args.server, args.user, password)
     if "AccessToken" in result:
         credentials = client.auth.credentials.get_credentials()

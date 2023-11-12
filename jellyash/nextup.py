@@ -9,9 +9,9 @@ def episode_str(episode: Item) -> str:
 
 
 def nextup() -> None:
-    client = authed_client()
     parser = argparse_parser()
     parser.add_argument("-l", "--limit", dest="limit", type=int, default=30)
     args = parser.parse_args()
+    client = authed_client()
     for episode in client.jellyfin.get_next(limit=args.limit):
         print(episode_str(episode))

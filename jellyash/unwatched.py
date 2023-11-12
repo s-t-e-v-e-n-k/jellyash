@@ -11,11 +11,11 @@ def pluralized_str(count: int, prefix: str = "un") -> str:
 
 
 def unwatched() -> None:
-    client = authed_client()
     parser = argparse_parser()
     parser.add_argument("show", nargs="*")
     parser.add_argument("-s", "--season", type=int)
     args = parser.parse_args()
+    client = authed_client()
     if args.season and not args.show:
         parser.error("Need to specify a show when specifiying a season")
     if not args.show:
