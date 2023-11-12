@@ -51,6 +51,44 @@ class TestApiResponse(ClientTest):
 
     @pytest.mark.default_cassette("TestApiResponse.setUp.yaml")
     @pytest.mark.vcr
+    def test_getitem_slice_start_end_no_jump(self):
+        items = self.search_result[1:3]
+        self.assertEqual(len(items), 2)
+        self.assertEqual(
+            items[0].Name, "18 - The Passenger of the 'Atlanta'")
+        self.assertEqual(items[1].Name, "14 - Pickaxe and Trowel")
+
+    @pytest.mark.default_cassette("TestApiResponse.setUp.yaml")
+    @pytest.mark.vcr
+    def test_getitem_slice_start_end_with_jump(self):
+        items = self.search_result[1:4:2]
+        self.assertEqual(len(items), 2)
+        self.assertEqual(
+            items[0].Name, "18 - The Passenger of the 'Atlanta'")
+        self.assertEqual(
+            items[1].Name, "31 - Part II, Chapter 26: Bow and Arrow")
+
+    @pytest.mark.default_cassette("TestApiResponse.setUp.yaml")
+    @pytest.mark.vcr
+    def test_getitem_slice_only_end(self):
+        items = self.search_result[:2]
+        self.assertEqual(len(items), 2)
+        self.assertEqual(items[0].Name, "Blender Foundation")
+        self.assertEqual(
+            items[1].Name, "18 - The Passenger of the 'Atlanta'")
+
+    @pytest.mark.default_cassette("TestApiResponse.setUp.yaml")
+    @pytest.mark.vcr
+    def test_getitem_slice_only_start(self):
+        items = self.search_result[3:]
+        self.assertEqual(len(items), 2)
+        self.assertEqual(
+            items[0].Name, "31 - Part II, Chapter 26: Bow and Arrow")
+        self.assertEqual(
+            items[1].Name, "22 - The New Citizen of the United States")
+
+    @pytest.mark.default_cassette("TestApiResponse.setUp.yaml")
+    @pytest.mark.vcr
     def test_iter(self):
         names = [
             "Blender Foundation",

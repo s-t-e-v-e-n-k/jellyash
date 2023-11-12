@@ -37,6 +37,12 @@ class ApiResponse:
         yield from [Item(i) for i in self.value["Items"]]
 
     def __getitem__(self, key) -> Item:
+        if isinstance(key, slice):
+            items = range(
+                key.start or 0,
+                key.stop or len(self.value["Items"]),
+                key.step or 1)
+            return [Item(self.value["Items"][k]) for k in items]
         return Item(self.value["Items"][key])
 
     def _raw_value(self):
