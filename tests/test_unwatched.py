@@ -1,9 +1,11 @@
 import argparse
 import unittest
-from unittest.mock import patch
+from collections import namedtuple
+from unittest.mock import Mock, patch
 
 import pytest
 
+from jellyash.bundle import Item
 from jellyash.unwatched import (
     all_unwatched,
     pluralized_str,
@@ -65,6 +67,44 @@ class TestUnwatched(ClientTest):
         specific_unwatched(self.test_client, self.show, 3)
         captured = self.capsys.readouterr()
         expected = "Can not find season 3 of Pioneer One\n"
+        self.assertEqual(captured.out, expected)
+        self.assertEqual(captured.err, "")
+
+    @pytest.mark.vcr
+    def test_specific_unwatched_unknown_special_season(self):
+        # Season of specials is 0
+        specific_unwatched(self.test_client, self.show, 0)
+        captured = self.capsys.readouterr()
+        # Pioneer One does not have a special season, but that is the actual
+        # test. Without the fix, it returns all seasons.
+        expected = "Can not find season 0 of Pioneer One\n"
+        self.assertEqual(captured.out, expected)
+        self.assertEqual(captured.err, "")
+
+    @pytest.mark.block_network
+    def test_specific_unwatched_special_season(self):
+        # Pioneer One does not have a special season, so we need to mock it.
+        client_type = namedtuple('client', ['jellyfin'])
+        client = client_type(Mock())
+        show_dict = {
+            "Id": 4,
+            "Name": "Foo Bar"
+            }
+        special_dict = {
+            "IndexNumber": 0,
+            "ChildCount": 1,
+            "UserData": {"UnplayedItemCount": 0}
+            }
+        client.jellyfin.get_seasons.return_value = [Item(special_dict)]
+        with patch(
+            "jellyash.unwatched.search_single_show",
+            return_value=Item(show_dict)
+            ):
+            specific_unwatched(client, "Foo Bar", 0)
+        captured = self.capsys.readouterr()
+        name = "Foo Bar, Specials"
+        wstr = "watched episode"
+        expected = f"{name}: 1 {wstr}\n{name}: 0 un{wstr}s\n"
         self.assertEqual(captured.out, expected)
         self.assertEqual(captured.err, "")
 

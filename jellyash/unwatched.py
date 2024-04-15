@@ -44,13 +44,16 @@ def specific_unwatched(client, term: str, season: Optional[int]) -> None:
         return
     seasons = client.jellyfin.get_seasons(show.Id)
     name = f"{show.Name}"
-    if season:
+    if season is not None:
         try:
             show = next(s for s in seasons if s.IndexNumber == season)
         except StopIteration:
             print(f"Can not find season {season} of {name}")
             return
-        name += f", Season {season}"
+        if season >= 1:
+            name += f", Season {season}"
+        else:
+            name += ", Specials"
         total = show.ChildCount
     else:
         total = sum(s.ChildCount for s in seasons)
