@@ -15,7 +15,7 @@ def test_client(klass):
         # vcrpy will not overwrite an existing cassette, remove it.
         cassette.unlink(missing_ok=True)
     with vcr.use_cassette(cassette, record_mode="once"):
-        client = create_client(f"jellyash_test_{klass.__name__.lower()}")
+        client = create_client()
         server_url = "https://demo.jellyfin.org/stable"
         auth_result = auth_with_password(client, server_url, "demo", "")
         assert "AccessToken" in auth_result

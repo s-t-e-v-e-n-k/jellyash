@@ -9,7 +9,7 @@ Wrapper around jellyfin-apiclient-python to provide convenience functions:
 Create an unauthenticated client:
 
 ```
-create_client(app_name)
+create_client()
 ```
 
 Authenticate with username and password:

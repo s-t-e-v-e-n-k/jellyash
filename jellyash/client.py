@@ -1,10 +1,8 @@
-import inspect
 import json
 import pathlib
 import platform
 import sys
 from json.decoder import JSONDecodeError
-from typing import Optional
 from uuid import uuid4
 
 from jellyfin_apiclient_python.client import JellyfinClient
@@ -16,11 +14,9 @@ from .bundle import WrappedAPI
 CREDENTIALS_FILE = pathlib.Path.home() / ".jellyfin_creds"
 
 
-def create_client(app_name: Optional[str] = None):
+def create_client():
     client = JellyfinClient()
-    if not app_name:
-        app_name = determine_app_name()
-    client.config.app(app_name, __version__, platform.node(), str(uuid4()))
+    client.config.app("jellyash", __version__, platform.node(), str(uuid4()))
     client.config.data["auth.ssl"] = True
     client.jellyfin = WrappedAPI(client.http)
     return client
@@ -42,7 +38,7 @@ def auth_with_token(client) -> None:
 
 
 def authed_client():
-    client = create_client(None)
+    client = create_client()
     try:
         auth_with_token(client)
     except (
@@ -51,9 +47,4 @@ def authed_client():
         print(f"{sys.argv[0]}: {e}")
         sys.exit(1)
     return client
-
-
-def determine_app_name() -> str:
-    frame = inspect.stack()[-2]
-    return f"jellyfin_{inspect.getmodulename(frame.filename)}"
 

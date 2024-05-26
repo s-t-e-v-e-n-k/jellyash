@@ -14,7 +14,6 @@ from jellyash.client import (
     auth_with_token,
     authed_client,
     create_client,
-    determine_app_name,
 )
 
 from .conftest import ClientTest
@@ -22,11 +21,11 @@ from .conftest import ClientTest
 
 class TestClient(unittest.TestCase):
     def setUp(self):
-        self.client = create_client("test")
+        self.client = create_client()
 
-    def test_create_client_with_app_name(self):
+    def test_create_client(self):
         data = self.client.config.data
-        self.assertEqual(data['app.name'], "test")
+        self.assertEqual(data['app.name'], "jellyash")
         self.assertEqual(data['app.device_name'], platform.node())
         self.assertEqual(data['app.version'], __version__)
         self.assertTrue(data['auth.ssl'])
@@ -123,8 +122,3 @@ class TestAuthedClient(ClientTest):
         with patch("jellyash.client.CREDENTIALS_FILE", non_exist):
             with self.assertRaises(SystemExit):
                 authed_client()
-
-
-class TestDetermineAppName(unittest.TestCase):
-    def test_determine_app_name(self):
-        self.assertEqual(determine_app_name(), "jellyfin___init__")
