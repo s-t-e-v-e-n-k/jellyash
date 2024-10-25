@@ -29,6 +29,7 @@ jobs:
         with:
           name: coverage-data-${{ matrix.python-version }}
           path: .coverage.${{ matrix.python-version }}
+          include-hidden-files: true
   coverage:
     name: Coverage
     needs: test
