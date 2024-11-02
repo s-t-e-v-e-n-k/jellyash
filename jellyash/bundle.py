@@ -1,5 +1,6 @@
 import sys
-from typing import Dict, Iterator, Union
+from collections.abc import Iterator
+from typing import Union
 
 if sys.version_info >= (3, 11):  # pragma: no cover
     from typing import Self
@@ -10,10 +11,10 @@ from jellyfin_apiclient_python.api import API
 
 
 class Item:
-    def __init__(self, item: Dict[str, str]):
+    def __init__(self, item: dict[str, str]):
         self.item = item
 
-    def _raw_item(self) -> Dict[str, str]:
+    def _raw_item(self) -> dict[str, str]:
         return self.item
 
     def __getattr__(self, attr: str) -> Union[str, Self]:
