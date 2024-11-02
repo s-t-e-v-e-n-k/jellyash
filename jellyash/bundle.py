@@ -41,7 +41,8 @@ class ApiResponse:
             items = range(
                 key.start or 0,
                 key.stop or len(self.value["Items"]),
-                key.step or 1)
+                key.step or 1,
+            )
             return [Item(self.value["Items"][k]) for k in items]
         return Item(self.value["Items"][key])
 
@@ -59,4 +60,3 @@ class WrappedAPI(API):
             if set(("Items", "TotalRecordCount")) <= set(resp.keys()):
                 return ApiResponse(resp)
         return resp
-

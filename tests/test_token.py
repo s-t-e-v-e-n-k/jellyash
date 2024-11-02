@@ -20,7 +20,7 @@ class TestCreateJellyfinToken(unittest.TestCase):
         server_url = "https://demo.jellyfin.org/stable"
         with patch(
             "argparse.ArgumentParser.parse_args",
-            return_value=argparse.Namespace(server=server_url, user="demo")
+            return_value=argparse.Namespace(server=server_url, user="demo"),
         ):
             with tempfile.NamedTemporaryFile() as tmpfile:
                 ptf = pathlib.Path(tmpfile.name)
@@ -38,4 +38,3 @@ class TestCreateJellyfinToken(unittest.TestCase):
                 self.assertIn("AccessToken", credentials)
                 self.assertIn("UserId", credentials)
                 self.assertEqual(credentials["Name"], "Stable Demo")
-

@@ -25,10 +25,10 @@ class TestClient(unittest.TestCase):
 
     def test_create_client(self):
         data = self.client.config.data
-        self.assertEqual(data['app.name'], "jellyash")
-        self.assertEqual(data['app.device_name'], platform.node())
-        self.assertEqual(data['app.version'], __version__)
-        self.assertTrue(data['auth.ssl'])
+        self.assertEqual(data["app.name"], "jellyash")
+        self.assertEqual(data["app.device_name"], platform.node())
+        self.assertEqual(data["app.version"], __version__)
+        self.assertTrue(data["auth.ssl"])
 
     @pytest.mark.vcr
     def test_auth_with_password(self):
@@ -73,7 +73,7 @@ class TestAuthWithToken(unittest.TestCase):
 
     def test_auth_with_state_zero(self):
         with tempfile.NamedTemporaryFile() as tmpfile:
-            tmpfile.file.write(b"{\"User\": \"foo\"}\n")
+            tmpfile.file.write(b'{"User": "foo"}\n')
             tmpfile.file.flush()
             ptf = pathlib.Path(tmpfile.name)
             with patch("jellyash.client.CREDENTIALS_FILE", ptf):
@@ -93,7 +93,7 @@ class TestAuthedClient(ClientTest):
     def test_authed_client(self):
         with tempfile.NamedTemporaryFile() as tmpfile:
             credentials = self.test_client.auth.credentials.get_credentials()
-            with open(tmpfile.name, 'w') as f:
+            with open(tmpfile.name, "w") as f:
                 json.dump(credentials["Servers"][0], f)
             ptf = pathlib.Path(tmpfile.name)
             with patch("jellyash.client.CREDENTIALS_FILE", ptf):
@@ -104,7 +104,7 @@ class TestAuthedClient(ClientTest):
     def test_authed_client_offline(self):
         with tempfile.NamedTemporaryFile() as tmpfile:
             credentials = self.test_client.auth.credentials.get_credentials()
-            with open(tmpfile.name, 'w') as f:
+            with open(tmpfile.name, "w") as f:
                 json.dump(credentials["Servers"][0], f)
             ptf = pathlib.Path(tmpfile.name)
             with patch("jellyash.client.CREDENTIALS_FILE", ptf):
@@ -114,7 +114,7 @@ class TestAuthedClient(ClientTest):
         captured = self.capsys.readouterr()
         self.assertEqual(
             captured.out, "test_offline: Failed to establish connection\n"
-            )
+        )
         self.assertEqual(captured.err, "")
 
     def test_authed_client_non_existant_file(self):

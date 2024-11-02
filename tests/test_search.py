@@ -12,11 +12,11 @@ class TestSearch(unittest.TestCase):
     def setUp(self):
         with open(self.cassette_name(self.id().split(".")[-1])) as f:
             result = json.load(f)
-        client_type = namedtuple('client', ['jellyfin'])
+        client_type = namedtuple("client", ["jellyfin"])
         self.client = client_type(Mock())
         self.client.jellyfin.search_media_items.return_value = ApiResponse(
             result
-            )
+        )
 
     def test_term_not_found(self):
         with self.assertRaises(ValueError):
@@ -49,15 +49,14 @@ class TestSearch(unittest.TestCase):
             "test_multiple_terms_not_exact": "NCIS: ",
             "test_multiple_terms_exact": "Maid",
             "test_multiple_terms_exact_with_space": "The Blacklist",
-            }
+        }
         for test in test_cassettes:
             result = client.jellyfin.search_media_items(
                 term=test_cassettes[test], media="Series"
-                )
+            )
             with open(self.cassette_name(test), "w") as f:
                 json.dump(result._raw_value(), f)
 
 
 if __name__ == "__main__":
     TestSearch()._rerecord_mock_results()
-

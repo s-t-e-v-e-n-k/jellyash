@@ -42,9 +42,11 @@ def authed_client():
     try:
         auth_with_token(client)
     except (
-        PermissionError, ValueError, JSONDecodeError, ConnectionError
-        ) as e:
+        PermissionError,
+        ValueError,
+        JSONDecodeError,
+        ConnectionError,
+    ) as e:
         print(f"{sys.argv[0]}: {e}")
         sys.exit(1)
     return client
-

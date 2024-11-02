@@ -84,22 +84,19 @@ class TestUnwatched(ClientTest):
     @pytest.mark.block_network
     def test_specific_unwatched_special_season(self):
         # Pioneer One does not have a special season, so we need to mock it.
-        client_type = namedtuple('client', ['jellyfin'])
+        client_type = namedtuple("client", ["jellyfin"])
         client = client_type(Mock())
-        show_dict = {
-            "Id": 4,
-            "Name": "Foo Bar"
-            }
+        show_dict = {"Id": 4, "Name": "Foo Bar"}
         special_dict = {
             "IndexNumber": 0,
             "ChildCount": 1,
-            "UserData": {"UnplayedItemCount": 0}
-            }
+            "UserData": {"UnplayedItemCount": 0},
+        }
         client.jellyfin.get_seasons.return_value = [Item(special_dict)]
         with patch(
             "jellyash.unwatched.search_single_show",
-            return_value=Item(show_dict)
-            ):
+            return_value=Item(show_dict),
+        ):
             specific_unwatched(client, "Foo Bar", 0)
         captured = self.capsys.readouterr()
         name = "Foo Bar, Specials"
@@ -118,8 +115,9 @@ class TestUnwatched(ClientTest):
     @pytest.mark.block_network
     def test_unwatched_season_without_show(self):
         with patch("jellyash.unwatched.authed_client"):
-            with patch("argparse.ArgumentParser.parse_args",
-                return_value=argparse.Namespace(show=[], season=3)
+            with patch(
+                "argparse.ArgumentParser.parse_args",
+                return_value=argparse.Namespace(show=[], season=3),
             ):
                 # Sigh, parser.error will always exit.
                 with self.assertRaises(SystemExit):
@@ -127,8 +125,7 @@ class TestUnwatched(ClientTest):
         captured = self.capsys.readouterr()
         self.assertEqual(captured.out, "")
         self.assertIn(
-            "Need to specify a show when specifiying a season",
-            captured.err
+            "Need to specify a show when specifiying a season", captured.err
         )
 
 
@@ -139,7 +136,7 @@ class TestUnwatchedIntegration(unittest.TestCase):
             with patch("jellyash.unwatched.all_unwatched") as all_mock:
                 with patch(
                     "argparse.ArgumentParser.parse_args",
-                    return_value=argparse.Namespace(show=[], season=None)
+                    return_value=argparse.Namespace(show=[], season=None),
                 ):
                     unwatched()
                     all_mock.assert_called_once_with(client_mock())
@@ -149,10 +146,11 @@ class TestUnwatchedIntegration(unittest.TestCase):
         namespace = argparse.Namespace(show=["Foo", "Bar"], season=None)
         with patch("jellyash.unwatched.authed_client") as client_mock:
             with patch(
-                "jellyash.unwatched.specific_unwatched") as specific_mock:
+                "jellyash.unwatched.specific_unwatched"
+            ) as specific_mock:
                 with patch(
                     "argparse.ArgumentParser.parse_args",
-                    return_value=namespace
+                    return_value=namespace,
                 ):
                     unwatched()
                     specific_mock.assert_called_once_with(

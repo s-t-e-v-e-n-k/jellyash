@@ -25,13 +25,13 @@ class TestDuration(ClientTest):
         with patch("jellyash.duration.authed_client") as client_mock:
             with patch(
                 "argparse.ArgumentParser.parse_args",
-                return_value=argparse.Namespace(show=["Foo", "Bar"])
+                return_value=argparse.Namespace(show=["Foo", "Bar"]),
             ):
                 with patch(
-                    "jellyash.duration.calculate_duration") as avg_mock:
+                    "jellyash.duration.calculate_duration"
+                ) as avg_mock:
                     average_duration()
                     client_mock.assert_called_once()
                     avg_mock.assert_called_once_with(
                         client_mock(), "Foo Bar"
                     )
-

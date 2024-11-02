@@ -33,4 +33,3 @@ class ClientTest(unittest.TestCase):
     @pytest.fixture(autouse=True)
     def _client(self):
         self.test_client = test_client(self.__class__)
-
