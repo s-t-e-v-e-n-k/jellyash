@@ -1,6 +1,5 @@
 import sys
 from collections.abc import Iterator
-from typing import Union
 
 if sys.version_info >= (3, 11):  # pragma: no cover
     from typing import Self
@@ -17,7 +16,7 @@ class Item:
     def _raw_item(self) -> dict[str, str]:
         return self.item
 
-    def __getattr__(self, attr: str) -> Union[str, Self]:
+    def __getattr__(self, attr: str) -> str | Self:
         try:
             value = self.item[attr]
             if isinstance(value, dict):

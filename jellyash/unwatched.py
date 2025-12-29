@@ -1,5 +1,4 @@
 from operator import attrgetter
-from typing import Optional
 
 from .cli import argparse_parser
 from .client import authed_client
@@ -36,7 +35,7 @@ def all_unwatched(client) -> None:
     print(f"Total: {pluralized_str(total)}")
 
 
-def specific_unwatched(client, term: str, season: Optional[int]) -> None:
+def specific_unwatched(client, term: str, season: int | None) -> None:
     try:
         show = search_single_show(client, term)
     except ValueError as e:
