@@ -7,10 +7,9 @@ name = "jellyash"
 dynamic = ["version"]
 license = {file = "LICENSE"}
 readme = "README.md"
-requires-python = ">= 3.10"
+requires-python = ">= 3.11"
 dependencies = [
     "jellyfin_apiclient_python",
-    "typing_extensions;python_version<'3.11'",
 ]
 
 [project.urls]
