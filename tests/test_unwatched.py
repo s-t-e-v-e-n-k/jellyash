@@ -89,7 +89,7 @@ class TestUnwatched(ClientTest):
         show_dict = {"Id": 4, "Name": "Foo Bar"}
         special_dict = {
             "IndexNumber": 0,
-            "ChildCount": 1,
+            "RecursiveItemCount": 1,
             "UserData": {"UnplayedItemCount": 0},
         }
         client.jellyfin.get_seasons.return_value = [Item(special_dict)]

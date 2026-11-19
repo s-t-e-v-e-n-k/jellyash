@@ -53,9 +53,9 @@ def specific_unwatched(client, term: str, season: int | None) -> None:
             name += f", Season {season}"
         else:
             name += ", Specials"
-        total = show.ChildCount
+        total = show.RecursiveItemCount
     else:
-        total = sum(s.ChildCount for s in seasons)
+        total = sum(s.RecursiveItemCount for s in seasons)
     unwatched = show.UserData.UnplayedItemCount
     print(f"{name}: {pluralized_str(total - unwatched, prefix='')}")
     print(f"{name}: {pluralized_str(unwatched)}")
